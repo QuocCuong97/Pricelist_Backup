@@ -1,7 +1,10 @@
-import requests
 import os
-from django.core.management.base import BaseCommand, CommandError
+
+import requests
 from bs4 import BeautifulSoup
+from django.core.management.base import BaseCommand, CommandError
+
+from home.models import Domain, Vendor
 
 homepage = "https://hostvn.net/"
 urls = "https://hostvn.net/ten-mien?p=domain-pricing"
@@ -64,22 +67,66 @@ class Command(BaseCommand):
         parser.add_argument('-net',action='store_true', help='crawl .net')
         parser.add_argument('-org',action='store_true', help='crawl .org')
         parser.add_argument('-info',action='store_true', help='crawl .info')
+        parser.add_argument('-a',action='store_true', help='crawl all')
 
     def handle(self, *args, **kwargs):
+        def new_vn():
+            objects = Domain.objects.filter(vendor=Vendor.objects.get(id=7), domain_type='vn')
+            if objects.count() != 0:
+                objects.delete()
+            lst = get_vn()
+            new_object = Domain.objects.create(vendor=Vendor.objects.get(id=7), domain_type='vn', origin_price=lst[0], sale_price=lst[1])
+
+        def new_comvn():
+            objects = Domain.objects.filter(vendor=Vendor.objects.get(id=7), domain_type='comvn')
+            if objects.count() != 0:
+                objects.delete()
+            lst = get_comvn()
+            new_object = Domain.objects.create(vendor=Vendor.objects.get(id=7), domain_type='comvn', origin_price=lst[0], sale_price=lst[1])
+        def new_com():
+            objects = Domain.objects.filter(vendor=Vendor.objects.get(id=7), domain_type='com')
+            if objects.count() != 0:
+                objects.delete()
+            lst = get_com()
+            new_object = Domain.objects.create(vendor=Vendor.objects.get(id=7), domain_type='com', origin_price=lst[0], sale_price=lst[1])
+        def new_net():
+            objects = Domain.objects.filter(vendor=Vendor.objects.get(id=7), domain_type='net')
+            if objects.count() != 0:
+                objects.delete()
+            lst = get_net()
+            new_object = Domain.objects.create(vendor=Vendor.objects.get(id=7), domain_type='net', origin_price=lst[0], sale_price=lst[1])
+        def new_org():
+            objects = Domain.objects.filter(vendor=Vendor.objects.get(id=7), domain_type='org')
+            if objects.count() != 0:
+                objects.delete()
+            lst = get_org()
+            new_object = Domain.objects.create(vendor=Vendor.objects.get(id=7), domain_type='org', origin_price=lst[0], sale_price=lst[1])
+        def new_info():
+            objects = Domain.objects.filter(vendor=Vendor.objects.get(id=7), domain_type='info')
+            if objects.count() != 0:
+                objects.delete()
+            lst = get_info()
+            new_object = Domain.objects.create(vendor=Vendor.objects.get(id=7), domain_type='info', origin_price=lst[0], sale_price=lst[1])
         if kwargs['vn']:
-            print(get_vn())
+            new_vn()
         elif kwargs['comvn']:
-            print(get_comvn())
+            new_comvn()
         elif kwargs['com']:
-            print(get_com())
+            new_com()
         elif kwargs['net']:
-            print(get_net())
+            new_net()
         elif kwargs['org']:
-            print(get_org())
+            new_org()
         elif kwargs['info']:
-            print(get_info())
+            new_info()
+        elif kwargs['a']:
+            new_vn()
+            new_comvn()
+            new_com()
+            new_net()
+            new_org()
+            new_info()
         else:
             print("Invalid options! Please type '-h' for help")
-    
 
         
