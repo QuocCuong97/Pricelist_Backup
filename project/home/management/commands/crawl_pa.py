@@ -81,42 +81,24 @@ class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
         def new_vn():
-            objects = Domain.objects.filter(vendor=Vendor.objects.get(id=3), domain_type='vn')
-            if objects.count() != 0:
-                objects.delete()
             lst = get_vn()
-            new_object = Domain.objects.create(vendor=Vendor.objects.get(id=3), domain_type='vn', origin_price=lst[0], sale_price=lst[1])
+            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(id=3), domain_type='vn', origin_price=lst[0], sale_price=lst[1])
 
         def new_comvn():
-            objects = Domain.objects.filter(vendor=Vendor.objects.get(id=3), domain_type='comvn')
-            if objects.count() != 0:
-                objects.delete()
             lst = get_comvn()
-            new_object = Domain.objects.create(vendor=Vendor.objects.get(id=3), domain_type='comvn', origin_price=lst[0], sale_price=lst[1])
+            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(id=3), domain_type='comvn', origin_price=lst[0], sale_price=lst[1])
         def new_com():
-            objects = Domain.objects.filter(vendor=Vendor.objects.get(id=3), domain_type='com')
-            if objects.count() != 0:
-                objects.delete()
             lst = get_com()
-            new_object = Domain.objects.create(vendor=Vendor.objects.get(id=3), domain_type='com', origin_price=lst[0], sale_price=lst[1])
+            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(id=3), domain_type='com', origin_price=lst[0], sale_price=lst[1])
         def new_net():
-            objects = Domain.objects.filter(vendor=Vendor.objects.get(id=3), domain_type='net')
-            if objects.count() != 0:
-                objects.delete()
             lst = get_net()
-            new_object = Domain.objects.create(vendor=Vendor.objects.get(id=3), domain_type='net', origin_price=lst[0], sale_price=lst[1])
+            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(id=3), domain_type='net', origin_price=lst[0], sale_price=lst[1])
         def new_org():
-            objects = Domain.objects.filter(vendor=Vendor.objects.get(id=3), domain_type='org')
-            if objects.count() != 0:
-                objects.delete()
             lst = get_org()
-            new_object = Domain.objects.create(vendor=Vendor.objects.get(id=3), domain_type='org', origin_price=lst[0], sale_price=lst[1])
+            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(id=3), domain_type='org', origin_price=lst[0], sale_price=lst[1])
         def new_info():
-            objects = Domain.objects.filter(vendor=Vendor.objects.get(id=3), domain_type='info')
-            if objects.count() != 0:
-                objects.delete()
             lst = get_info()
-            new_object = Domain.objects.create(vendor=Vendor.objects.get(id=3), domain_type='info', origin_price=lst[0], sale_price=lst[1])
+            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(id=3), domain_type='info', origin_price=lst[0], sale_price=lst[1])
         if kwargs['vn']:
             new_vn()
         elif kwargs['comvn']:
