@@ -1,5 +1,3 @@
-import os
-
 import requests
 from bs4 import BeautifulSoup
 from django.core.management.base import BaseCommand, CommandError
@@ -72,23 +70,23 @@ class Command(BaseCommand):
     def handle(self, *args, **kwargs):
         def new_vn():
             lst = get_vn()
-            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(id=7), domain_type='vn', origin_price=lst[0], sale_price=lst[1])
+            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(id=7), domain_type='vn', defaults = {'origin_price': lst[0], 'sale_price': lst[1]})
 
         def new_comvn():
             lst = get_comvn()
-            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(id=7), domain_type='comvn', origin_price=lst[0], sale_price=lst[1])
+            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(id=7), domain_type='comvn', defaults = {'origin_price': lst[0], 'sale_price': lst[1]})
         def new_com():
             lst = get_com()
-            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(id=7), domain_type='com', origin_price=lst[0], sale_price=lst[1])
+            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(id=7), domain_type='com', defaults = {'origin_price': lst[0], 'sale_price': lst[1]})
         def new_net():
             lst = get_net()
-            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(id=7), domain_type='net', origin_price=lst[0], sale_price=lst[1])
+            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(id=7), domain_type='net', defaults = {'origin_price': lst[0], 'sale_price': lst[1]})
         def new_org():
             lst = get_org()
-            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(id=7), domain_type='org', origin_price=lst[0], sale_price=lst[1])
+            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(id=7), domain_type='org', defaults = {'origin_price': lst[0], 'sale_price': lst[1]})
         def new_info():
             lst = get_info()
-            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(id=7), domain_type='info', origin_price=lst[0], sale_price=lst[1])
+            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(id=7), domain_type='info', defaults = {'origin_price': lst[0], 'sale_price': lst[1]})
         if kwargs['vn']:
             new_vn()
         elif kwargs['comvn']:

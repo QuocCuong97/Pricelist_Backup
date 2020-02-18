@@ -9,6 +9,7 @@ class VendorAdmin(admin.ModelAdmin):
     fieldsets = [
         ('Tên nhà cung cấp', {'fields': ['name']}),
         ('Trang chủ', {'fields': ['homepage']}),
+        ('Logo', {'fields': ['logo']})
     ]
 
 class DomainAdmin(admin.ModelAdmin):

@@ -4,7 +4,8 @@ from django.db import models
 
 class Vendor(models.Model):
     name = models.CharField(max_length=20, unique=True)
-    homepage = models.TextField()
+    homepage = models.CharField(max_length=30, unique=True)
+    logo = models.CharField(max_length=30, unique=True, null=True)
 
     def __str__(self):
         return self.name
@@ -41,7 +42,8 @@ class Hosting(models.Model):
 class VPS(models.Model):
     vendor = models.ForeignKey(Vendor, on_delete=models.CASCADE)
     price = models.CharField(max_length=20, default="0")
-    cpu = models.CharField(max_length=40, default="0")
+    cpu = models.CharField(max_length=40, null=True)
+    core = models.CharField(max_length=3, default="0")
     disk = models.CharField(max_length=20, default="0")
     ram = models.CharField(max_length=20, default="0")
     def __str__(self):
