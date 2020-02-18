@@ -25,8 +25,9 @@ class Domain(models.Model):
         choices=domain_type_choices,
         default='vn',
     )
-    origin_price = models.CharField(max_length=20, default="0")
-    sale_price = models.CharField(max_length=20, default="0")
+    # origin_price = models.CharField(max_length=20, default="0")
+    origin_price = models.DecimalField(max_digits = 8, decimal_places = 3)
+    sale_price = models.DecimalField(max_digits = 8, decimal_places = 3)
     def __str__(self):
         return self.vendor.name + ' ' + self.domain_type
 

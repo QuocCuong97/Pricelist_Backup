@@ -88,7 +88,7 @@ def get_info():
         sale_price = mark_sibling.text.strip('đ/năm')
     except:
         sale_price = origin_price
-    return [origin_price, sale_price]
+    return [origin_price, '99.000']
 
 
 class Command(BaseCommand):
