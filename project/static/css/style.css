@@ -10,7 +10,7 @@
 --------------------------------------------------------------*/
 
 body {
-  background: #fff;
+  background-color: #fff;
   color: #444;
   font-family: "Open Sans", sans-serif;
 }
@@ -1431,5 +1431,9 @@ li > a {
   color: white;
 }
 li > a:hover {
+  color: white;
+}
+.dark-mode {
+  background-color: black;
   color: white;
 }

@@ -7,8 +7,8 @@ from home.models import Domain, Vendor
 def hosting(request):
     return render(request, 'pages/hosting.html')
 
-def vps(request):
-    return render(request, 'pages/vps.html')
+def ssl(request):
+    return render(request, 'pages/ssl.html')
 
 def index(request):
     lst_vn = Domain.objects.all().filter(domain_type='vn').order_by('sale_price').values_list('sale_price', 'vendor__name', 'vendor__logo', 'vendor__homepage')
