@@ -16,42 +16,42 @@ def get_dom(url):
 def get_vn():
     dom_origin = get_dom(urls)
     mark_origin = dom_origin.find(class_="domain-extensions-list")
-    reg_origin = mark_origin.contents[7].contents[0].contents[1].contents[2].strip("đ").strip()
+    reg_origin = mark_origin.contents[15].contents[1].contents[3].contents[2].strip().rpartition('đ')[0]
     reg_promotion = reg_origin
     return [reg_origin, reg_promotion]
 
 def get_comvn():
     dom_origin = get_dom(urls)
     mark_origin = dom_origin.find(class_="domain-extensions-list")
-    reg_origin = mark_origin.contents[8].contents[0].contents[1].contents[2].strip("đ").strip()
+    reg_origin = mark_origin.contents[17].contents[1].contents[3].contents[2].strip("đ").strip().rpartition('đ')[0]
     reg_promotion = reg_origin
     return [reg_origin, reg_promotion]
 
 def get_com():
     dom_origin = get_dom(urls)
     mark_origin = dom_origin.find(class_="domain-extensions-list")
-    reg_origin = mark_origin.contents[0].contents[0].contents[0].contents[2].strip("đ").strip()
+    reg_origin = mark_origin.contents[1].contents[1].contents[1].contents[2].strip().rpartition('đ')[0]
     reg_promotion = reg_origin
     return [reg_origin, reg_promotion]
 
 def get_net():
     dom_origin = get_dom(urls)
     mark_origin = dom_origin.find(class_="domain-extensions-list")
-    reg_origin = mark_origin.contents[1].contents[0].contents[0].contents[2].strip("đ").strip()
+    reg_origin = mark_origin.contents[3].contents[1].contents[1].contents[2].strip().rpartition('đ')[0]
     reg_promotion = reg_origin
     return [reg_origin, reg_promotion]
 
 def get_org():
     dom_origin = get_dom(urls)
     mark_origin = dom_origin.find(class_="domain-extensions-list")
-    reg_origin = mark_origin.contents[2].contents[0].contents[0].contents[2].strip("đ").strip()
+    reg_origin = mark_origin.contents[5].contents[1].contents[1].contents[2].strip().rpartition('đ')[0]
     reg_promotion = reg_origin
     return [reg_origin, reg_promotion]
 
 def get_info():
     dom_origin = get_dom(urls)
     mark_origin = dom_origin.find(class_="domain-extensions-list")
-    reg_origin = mark_origin.contents[3].contents[0].contents[0].contents[2].strip("đ").strip()
+    reg_origin = mark_origin.contents[7].contents[1].contents[1].contents[2].strip().rpartition('đ')[0]
     reg_promotion = reg_origin
     return [reg_origin, reg_promotion]
 
