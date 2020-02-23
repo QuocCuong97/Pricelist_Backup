@@ -5,8 +5,16 @@ from django.db import models
 class Vendor(models.Model):
     name = models.CharField(max_length=20, unique=True)
     homepage = models.CharField(max_length=30, unique=True)
+    vendor_location_choices = [
+        ('FOR', 'Foreign'),
+        ('VN', 'VietNam')
+    ]
+    vendor_location = models.CharField(
+        max_length=10,
+        choices=vendor_location_choices,
+        default='VN',
+    )
     logo = models.CharField(max_length=30, unique=True, null=True)
-
     def __str__(self):
         return self.name
 
@@ -25,11 +33,15 @@ class Domain(models.Model):
         choices=domain_type_choices,
         default='vn',
     )
-    reg_origin = models.DecimalField(max_digits = 8, decimal_places = 3)
-    reg_promotion = models.DecimalField(max_digits = 8, decimal_places = 3)
-    renew_price = models.CharField(max_length=8, blank=True)
-    trans_price = models.CharField(max_length=8, blank=True)
-    usd = models.CharField(max_length=6, blank=True)
+    reg_origin = models.DecimalField(max_digits = 8, decimal_places = 3, null=True)
+    reg_origin_usd = models.CharField(max_length=10, blank=True)
+    reg_promotion = models.DecimalField(max_digits = 8, decimal_places = 3, null=True)
+    reg_promotion_usd = models.CharField(max_length=10, blank=True)
+    renew_price = models.DecimalField(max_digits = 8, decimal_places = 3, null=True)
+    renew_price_usd = models.CharField(max_length=10, blank=True)
+    trans_price = models.DecimalField(max_digits = 8, decimal_places = 3, null=True)
+    trans_price_usd = models.CharField(max_length=10, blank=True)
+    rates = models.CharField(max_length=10, blank=True)
     note = models.TextField(blank=True)
 
     def __str__(self):

@@ -37,61 +37,151 @@
           <tbody>
             <tr>
               <td class="font-weight-bolder m-1">.COM</td>
+              {% if lst_cheapest.0.4 %}
+              <td><div><a class="text-dark" href="javascript:void(0);" data-toggle="tooltip" title="{{ lst_cheapest.0.0 }}">$ {{ lst_cheapest.0.4 }}</a></div></td>
+              <td><a class="text-dark text-decoration-none" href="{{ lst_cheapest.0.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{lst_cheapest.0.2}}">  {{ lst_cheapest.0.1 }}</a></td>
+              {% else %}
               <td><div>{{ lst_cheapest.0.0 }}</div></td>
-              <td><a  class="text-dark text-decoration-none cell" href="{{ lst_cheapest.0.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{lst_cheapest.0.2}}">  {{ lst_cheapest.0.1 }}</a></td>
+              <td><a class="text-dark text-decoration-none" href="{{ lst_cheapest.0.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{lst_cheapest.0.2}}">  {{ lst_cheapest.0.1 }}</a></td>
+              {% endif %}
+              {% if lst_second.0.4 %}
+              <td><div><a class="text-dark" href="javascript:void(0);" data-toggle="tooltip" title="{{ lst_second.0.0 }}">$ {{ lst_second.0.4 }}</a></div></td>
+              <td><a class="text-dark text-decoration-none" href="{{ lst_second.0.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{lst_second.0.2}}">  {{ lst_second.0.1 }}</a></td>
+              {% else %}
               <td><div>{{ lst_second.0.0 }}</div></td>
-              <td><a  class="text-dark text-decoration-none" href="{{ lst_second.0.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{lst_second.0.2}}">  {{ lst_second.0.1 }}</a></td>
+              <td><a class="text-dark text-decoration-none" href="{{ lst_second.0.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{lst_second.0.2}}">  {{ lst_second.0.1 }}</a></td>
+              {% endif %}
+              {% if lst_third.0.4 %}
+              <td><div><a class="text-dark" href="javascript:void(0);" data-toggle="tooltip" title="{{ lst_third.0.0 }}">$ {{ lst_third.0.4 }}</a></div></td>
+              <td><a class="text-dark text-decoration-none" href="{{ lst_third.0.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{lst_second.0.2}}">  {{ lst_third.0.1 }}</a></td>
+              {% else %}
               <td><div>{{ lst_third.0.0 }}</div></td>
-              <td><a  class="text-dark text-decoration-none" href="{{ lst_third.0.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{lst_third.0.2}}">  {{ lst_third.0.1 }}</a></td>
+              <td><a class="text-dark text-decoration-none" href="{{ lst_third.0.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{lst_third.0.2}}">  {{ lst_third.0.1 }}</a></td>
+              {% endif %}
               <td><a class="text-decoration-none" data-toggle="modal" href="#comModal">+ {{ lst_count.0 }} more</a></td>
             <tr>
               <td class="font-weight-bolder m-3">.NET</td>
+              {% if lst_cheapest.1.4 %}
+              <td><div><a class="text-dark" href="javascript:void(0);" data-toggle="tooltip" title="{{ lst_cheapest.1.0 }}">$ {{ lst_cheapest.1.4 }}</a></div></td>
+              <td><a class="text-dark text-decoration-none" href="{{ lst_cheapest.1.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{lst_cheapest.1.2}}">  {{ lst_cheapest.1.1 }}</a></td>
+              {% else %}
               <td><div>{{ lst_cheapest.1.0 }}</div></td>
-              <td><a  class="text-dark text-decoration-none" href="{{ lst_cheapest.1.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{lst_cheapest.1.2}}">  {{ lst_cheapest.1.1 }}</a></td>
+              <td><a class="text-dark text-decoration-none" href="{{ lst_cheapest.1.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{lst_cheapest.1.2}}">  {{ lst_cheapest.1.1 }}</a></td>
+              {% endif %}
+              {% if lst_second.1.4 %}
+              <td><div><a class="text-dark" href="javascript:void(0);" data-toggle="tooltip" title="{{ lst_second.1.0 }}">$ {{ lst_second.1.4 }}</a></div></td>
+              <td><a class="text-dark text-decoration-none" href="{{ lst_second.1.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{lst_second.1.2}}">  {{ lst_second.1.1 }}</a></td>
+              {% else %}
               <td><div>{{ lst_second.1.0 }}</div></td>
-              <td><a  class="text-dark text-decoration-none" href="{{ lst_second.1.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{lst_second.1.2}}">  {{ lst_second.1.1 }}</a></td>
+              <td><a class="text-dark text-decoration-none" href="{{ lst_second.1.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{lst_second.1.2}}">  {{ lst_second.1.1 }}</a></td>
+              {% endif %}
+              {% if lst_third.1.4 %}
+              <td><div><a class="text-dark" href="javascript:void(0);" data-toggle="tooltip" title="{{ lst_third.1.0 }}">$ {{ lst_third.1.4 }}</a></div></td>
+              <td><a class="text-dark text-decoration-none" href="{{ lst_third.1.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{lst_second.1.2}}">  {{ lst_third.1.1 }}</a></td>
+              {% else %}
               <td><div>{{ lst_third.1.0 }}</div></td>
-              <td><a  class="text-dark text-decoration-none" href="{{ lst_third.1.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{lst_third.1.2}}">  {{ lst_third.1.1 }}</td>
+              <td><a class="text-dark text-decoration-none" href="{{ lst_third.1.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{lst_third.1.2}}">  {{ lst_third.1.1 }}</a></td>
+              {% endif %}
               <td><a class="text-decoration-none" data-toggle="modal" href="#netModal">+ {{ lst_count.1 }} more</a></td>
             </tr>
             <tr>
               <td class="font-weight-bolder m-3">.ORG</td>
+              {% if lst_cheapest.2.4 %}
+              <td><div><a class="text-dark" href="javascript:void(0);" data-toggle="tooltip" title="{{ lst_cheapest.2.0 }}">$ {{ lst_cheapest.2.4 }}</a></div></td>
+              <td><a class="text-dark text-decoration-none" href="{{ lst_cheapest.2.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{lst_cheapest.2.2}}">  {{ lst_cheapest.2.1 }}</a></td>
+              {% else %}
               <td><div>{{ lst_cheapest.2.0 }}</div></td>
-              <td><a  class="text-dark text-decoration-none" href="{{ lst_cheapest.2.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{lst_cheapest.2.2}}">  {{ lst_cheapest.2.1 }}</a></td>
+              <td><a class="text-dark text-decoration-none" href="{{ lst_cheapest.2.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{lst_cheapest.2.2}}">  {{ lst_cheapest.2.1 }}</a></td>
+              {% endif %}
+              {% if lst_second.2.4 %}
+              <td><div><a class="text-dark" href="javascript:void(0);" data-toggle="tooltip" title="{{ lst_second.2.0 }}">$ {{ lst_second.2.4 }}</a></div></td>
+              <td><a class="text-dark text-decoration-none" href="{{ lst_second.2.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{lst_second.2.2}}">  {{ lst_second.2.1 }}</a></td>
+              {% else %}
               <td><div>{{ lst_second.2.0 }}</div></td>
-              <td><a  class="text-dark text-decoration-none" href="{{ lst_second.2.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{lst_second.2.2}}">  {{ lst_second.2.1 }}</a></td>
+              <td><a class="text-dark text-decoration-none" href="{{ lst_second.2.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{lst_second.2.2}}">  {{ lst_second.2.1 }}</a></td>
+              {% endif %}
+              {% if lst_third.2.4 %}
+              <td><div><a class="text-dark" href="javascript:void(0);" data-toggle="tooltip" title="{{ lst_third.2.0 }}">$ {{ lst_third.2.4 }}</a></div></td>
+              <td><a class="text-dark text-decoration-none" href="{{ lst_third.2.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{lst_second.2.2}}">  {{ lst_third.2.1 }}</a></td>
+              {% else %}
               <td><div>{{ lst_third.2.0 }}</div></td>
-              <td><a  class="text-dark text-decoration-none" href="{{ lst_thirf.2.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{lst_third.2.2}}">  {{ lst_third.2.1 }}</a></td>
+              <td><a class="text-dark text-decoration-none" href="{{ lst_third.2.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{lst_third.2.2}}">  {{ lst_third.2.1 }}</a></td>
+              {% endif %}
               <td><a class="text-decoration-none" data-toggle="modal" href="#orgModal">+ {{ lst_count.2 }} more</a></td>
             </tr>
             <tr>
               <td class="font-weight-bolder m-3">.INFO</td>
+              {% if lst_cheapest.3.4 %}
+              <td><div><a class="text-dark" href="javascript:void(0);" data-toggle="tooltip" title="{{ lst_cheapest.3.0 }}">$ {{ lst_cheapest.3.4 }}</a></div></td>
+              <td><a class="text-dark text-decoration-none" href="{{ lst_cheapest.3.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{lst_cheapest.3.2}}">  {{ lst_cheapest.3.1 }}</a></td>
+              {% else %}
               <td><div>{{ lst_cheapest.3.0 }}</div></td>
-              <td><a  class="text-dark text-decoration-none" href="{{ lst_cheapest.3.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{lst_cheapest.3.2}}">  {{ lst_cheapest.3.1 }}</a></td>
+              <td><a class="text-dark text-decoration-none" href="{{ lst_cheapest.3.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{lst_cheapest.3.2}}">  {{ lst_cheapest.3.1 }}</a></td>
+              {% endif %}
+              {% if lst_second.3.4 %}
+              <td><div><a class="text-dark" href="javascript:void(0);" data-toggle="tooltip" title="{{ lst_second.3.0 }}">$ {{ lst_second.3.4 }}</a></div></td>
+              <td><a class="text-dark text-decoration-none" href="{{ lst_second.3.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{lst_second.3.2}}">  {{ lst_second.3.1 }}</a></td>
+              {% else %}
               <td><div>{{ lst_second.3.0 }}</div></td>
-              <td><a  class="text-dark text-decoration-none" href="{{ lst_second.3.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{lst_second.3.2}}">  {{ lst_second.3.1 }}</a></td>
+              <td><a class="text-dark text-decoration-none" href="{{ lst_second.3.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{lst_second.3.2}}">  {{ lst_second.3.1 }}</a></td>
+              {% endif %}
+              {% if lst_third.3.4 %}
+              <td><div><a class="text-dark" href="javascript:void(0);" data-toggle="tooltip" title="{{ lst_third.3.0 }}">$ {{ lst_third.3.4 }}</a></div></td>
+              <td><a class="text-dark text-decoration-none" href="{{ lst_third.3.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{lst_second.3.2}}">  {{ lst_third.3.1 }}</a></td>
+              {% else %}
               <td><div>{{ lst_third.3.0 }}</div></td>
-              <td><a  class="text-dark text-decoration-none" href="{{ lst_third.3.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{lst_third.3.2}}">  {{ lst_third.3.1 }}</a></td>
+              <td><a class="text-dark text-decoration-none" href="{{ lst_third.3.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{lst_third.3.2}}">  {{ lst_third.3.1 }}</a></td>
+              {% endif %}
               <td><a class="text-decoration-none" data-toggle="modal" href="#infoModal">+ {{ lst_count.3 }} more</a></td>
             </tr>
             <tr>
               <td class="font-weight-bolder m-3">.COM.VN</td>
+              {% if lst_cheapest.4.4 %}
+              <td><div><a class="text-dark" href="javascript:void(0);" data-toggle="tooltip" title="{{ lst_cheapest.4.0 }}">$ {{ lst_cheapest.4.4 }}</a></div></td>
+              <td><a class="text-dark text-decoration-none" href="{{ lst_cheapest.4.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{lst_cheapest.4.2}}">  {{ lst_cheapest.4.1 }}</a></td>
+              {% else %}
               <td><div>{{ lst_cheapest.4.0 }}</div></td>
-              <td><a  class="text-dark text-decoration-none" href="{{ lst_cheapest.4.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{lst_cheapest.4.2}}">  {{ lst_cheapest.4.1 }}</a></td>
+              <td><a class="text-dark text-decoration-none" href="{{ lst_cheapest.4.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{lst_cheapest.4.2}}">  {{ lst_cheapest.4.1 }}</a></td>
+              {% endif %}
+              {% if lst_second.4.4 %}
+              <td><div><a class="text-dark" href="javascript:void(0);" data-toggle="tooltip" title="{{ lst_second.4.0 }}">$ {{ lst_second.4.4 }}</a></div></td>
+              <td><a class="text-dark text-decoration-none" href="{{ lst_second.2.4 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{lst_second.4.2}}">  {{ lst_second.4.1 }}</a></td>
+              {% else %}
               <td><div>{{ lst_second.4.0 }}</div></td>
-              <td><a  class="text-dark text-decoration-none" href="{{ lst_second.4.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{lst_second.4.2}}">  {{ lst_second.4.1 }}</a></td>
+              <td><a class="text-dark text-decoration-none" href="{{ lst_second.4.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{lst_second.4.2}}">  {{ lst_second.4.1 }}</a></td>
+              {% endif %}
+              {% if lst_third.4.4 %}
+              <td><div><a class="text-dark" href="javascript:void(0);" data-toggle="tooltip" title="{{ lst_third.4.0 }}">$ {{ lst_third..4 }}</a></div></td>
+              <td><a class="text-dark text-decoration-none" href="{{ lst_third.4.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{lst_second.4.2}}">  {{ lst_third.4.1 }}</a></td>
+              {% else %}
               <td><div>{{ lst_third.4.0 }}</div></td>
-              <td><a  class="text-dark text-decoration-none" href="{{ lst_third.4.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{lst_third.4.2}}">  {{ lst_third.4.1 }}</a></td>
+              <td><a class="text-dark text-decoration-none" href="{{ lst_third.4.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{lst_third.4.2}}">  {{ lst_third.4.1 }}</a></td>
+              {% endif %}
               <td><a class="text-decoration-none" data-toggle="modal" href="#comvnModal">+ {{ lst_count.4 }} more</a></td>
             </tr>
             <tr>
               <td class="font-weight-bolder m-3">.VN</td>
+              {% if lst_cheapest.5.4 %}
+              <td><div><a class="text-dark" href="javascript:void(0);" data-toggle="tooltip" title="{{ lst_cheapest.5.0 }}">$ {{ lst_cheapest.5.4 }}</a></div></td>
+              <td><a class="text-dark text-decoration-none" href="{{ lst_cheapest.5.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{lst_cheapest.5.2}}">  {{ lst_cheapest.5.1 }}</a></td>
+              {% else %}
               <td><div>{{ lst_cheapest.5.0 }}</div></td>
-              <td><a  class="text-dark text-decoration-none" href="{{ lst_cheapest.5.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{lst_cheapest.5.2}}">  {{ lst_cheapest.5.1 }}</a></td>
+              <td><a class="text-dark text-decoration-none" href="{{ lst_cheapest.5.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{lst_cheapest.5.2}}">  {{ lst_cheapest.5.1 }}</a></td>
+              {% endif %}
+              {% if lst_second.5.4 %}
+              <td><div><a class="text-dark" href="javascript:void(0);" data-toggle="tooltip" title="{{ lst_second.5.0 }}">$ {{ lst_second.5.4 }}</a></div></td>
+              <td><a class="text-dark text-decoration-none" href="{{ lst_second.5.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{lst_second.5.2}}">  {{ lst_second.5.1 }}</a></td>
+              {% else %}
               <td><div>{{ lst_second.5.0 }}</div></td>
-              <td><a  class="text-dark text-decoration-none" href="{{ lst_second.5.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{lst_second.5.2}}">  {{ lst_second.5.1 }}</a></td>
+              <td><a class="text-dark text-decoration-none" href="{{ lst_second.5.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{lst_second.5.2}}">  {{ lst_second.5.1 }}</a></td>
+              {% endif %}
+              {% if lst_third.5.4 %}
+              <td><div><a class="text-dark" href="javascript:void(0);" data-toggle="tooltip" title="{{ lst_third.5.0 }}">$ {{ lst_third.5.4 }}</a></div></td>
+              <td><a class="text-dark text-decoration-none" href="{{ lst_third.5.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{lst_second.5.2}}">  {{ lst_third.5.1 }}</a></td>
+              {% else %}
               <td><div>{{ lst_third.5.0 }}</div></td>
-              <td><a  class="text-dark text-decoration-none" href="{{ lst_third.5.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{lst_third.5.2}}">  {{ lst_third.5.1 }}</a></td>
+              <td><a class="text-dark text-decoration-none" href="{{ lst_third.5.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{lst_third.5.2}}">  {{ lst_third.5.1 }}</a></td>
+              {% endif %}
               <td><a class="text-decoration-none" data-toggle="modal" href="#vnModal">+ {{ lst_count.5 }} more</a></td>
             </tr>
           </tbody>
@@ -110,10 +200,15 @@
           <table class="table">
             {% for x in lst_other.0 %}
             <tr>
+              {% if x.4 %}
+              <td><div><a class="text-dark" href="javascript:void(0);" data-toggle="tooltip" title="{{ x.0 }}">$ {{ x.4 }}</a></div></td>
+              <td><a class="text-dark text-decoration-none" href="{{ x.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{ x.2 }}">  {{ x.1 }}</a></td>
+              {% else %}
               <td>{{ x.0 }}</td>
-              <td><a  class="text-dark text-decoration-none" href="{{ x.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{x.2}}">  {{ x.1 }}</a></td>
+              <td><a class="text-dark text-decoration-none" href="{{ x.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{ x.2 }}">  {{ x.1 }}</a></td>
+              {% endif %}
             </tr>
-          {% endfor %}
+            {% endfor %}
           </table>
         </div>
         <div class="modal-footer">
@@ -133,8 +228,13 @@
           <table class="table">
             {% for x in lst_other.1 %}
             <tr>
+              {% if x.4 %}
+              <td><div><a class="text-dark" href="javascript:void(0);" data-toggle="tooltip" title="{{ x.0 }}">$ {{ x.4 }}</a></div></td>
+              <td><a class="text-dark text-decoration-none" href="{{ x.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{ x.2 }}">  {{ x.1 }}</a></td>
+              {% else %}
               <td>{{ x.0 }}</td>
-              <td><a  class="text-dark text-decoration-none" href="{{ x.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{x.2}}">  {{ x.1 }}</a></td>
+              <td><a class="text-dark text-decoration-none" href="{{ x.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{ x.2 }}">  {{ x.1 }}</a></td>
+              {% endif %}
             </tr>
             {% endfor %}
           </table>
@@ -156,10 +256,15 @@
           <table class="table">
             {% for x in lst_other.2 %}
             <tr>
+              {% if x.4 %}
+              <td><div><a class="text-dark" href="javascript:void(0);" data-toggle="tooltip" title="{{ x.0 }}">$ {{ x.4 }}</a></div></td>
+              <td><a class="text-dark text-decoration-none" href="{{ x.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{ x.2 }}">  {{ x.1 }}</a></td>
+              {% else %}
               <td>{{ x.0 }}</td>
-              <td><a  class="text-dark text-decoration-none" href="{{ x.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{x.2}}">  {{ x.1 }}</a></td>
+              <td><a class="text-dark text-decoration-none" href="{{ x.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{ x.2 }}">  {{ x.1 }}</a></td>
+              {% endif %}
             </tr>
-          {% endfor %}
+            {% endfor %}
           </table>
         </div>
         <div class="modal-footer">
@@ -179,10 +284,15 @@
           <table class="table">
             {% for x in lst_other.3 %}
             <tr>
+              {% if x.4 %}
+              <td><div><a class="text-dark" href="javascript:void(0);" data-toggle="tooltip" title="{{ x.0 }}">$ {{ x.4 }}</a></div></td>
+              <td><a class="text-dark text-decoration-none" href="{{ x.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{ x.2 }}">  {{ x.1 }}</a></td>
+              {% else %}
               <td>{{ x.0 }}</td>
-              <td><a  class="text-dark text-decoration-none" href="{{ x.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{x.2}}">  {{ x.1 }}</a></td>
+              <td><a class="text-dark text-decoration-none" href="{{ x.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{ x.2 }}">  {{ x.1 }}</a></td>
+              {% endif %}
             </tr>
-          {% endfor %}
+            {% endfor %}
           </table>
         </div>
         <div class="modal-footer">
@@ -202,10 +312,15 @@
           <table class="table">
             {% for x in lst_other.4 %}
             <tr>
+              {% if x.4 %}
+              <td><div><a class="text-dark" href="javascript:void(0);" data-toggle="tooltip" title="{{ x.0 }}">$ {{ x.4 }}</a></div></td>
+              <td><a class="text-dark text-decoration-none" href="{{ x.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{ x.2 }}">  {{ x.1 }}</a></td>
+              {% else %}
               <td>{{ x.0 }}</td>
-              <td><a  class="text-dark text-decoration-none" href="{{ x.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{x.2}}">  {{ x.1 }}</a></td>
+              <td><a class="text-dark text-decoration-none" href="{{ x.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{ x.2 }}">  {{ x.1 }}</a></td>
+              {% endif %}
             </tr>
-          {% endfor %}
+            {% endfor %}
           </table>
         </div>
         <div class="modal-footer">
@@ -225,10 +340,15 @@
           <table class="table">
             {% for x in lst_other.5 %}
             <tr>
+              {% if x.4 %}
+              <td><div><a class="text-dark" href="javascript:void(0);" data-toggle="tooltip" title="{{ x.0 }}">$ {{ x.4 }}</a></div></td>
+              <td><a class="text-dark text-decoration-none" href="{{ x.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{ x.2 }}">  {{ x.1 }}</a></td>
+              {% else %}
               <td>{{ x.0 }}</td>
-              <td><a  class="text-dark text-decoration-none" href="{{ x.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{x.2}}">  {{ x.1 }}</a></td>
+              <td><a class="text-dark text-decoration-none" href="{{ x.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{ x.2 }}">  {{ x.1 }}</a></td>
+              {% endif %}
             </tr>
-          {% endfor %}
+            {% endfor %}
           </table>
         </div>
         <div class="modal-footer">
@@ -244,4 +364,9 @@
     </pre>
     <p class="mb-3"><b>Sử dụng ô Tìm kiếm</b> để xem thêm, loại tên miền gì cũng có.</p>
   </div>
+  <script>
+    $(document).ready(function(){
+      $('[data-toggle="tooltip"]').tooltip();
+    });
+    </script>
 {% endblock %}

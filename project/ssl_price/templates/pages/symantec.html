@@ -1,0 +1,64 @@
+{% extends "pages/ssl.html" %}
+{% block table %}
+<div class="btn-group">
+  <button type="button" class="btn btn-primary font-weight-bolder"><a class="text-decoration-none text-white" href="http://localhost:8000/ssl/comodo">Comodo SSL</a></button>
+  <button type="button" class="btn btn-primary font-weight-bolder"><a class="text-decoration-none text-white" href="http://localhost:8000/ssl/geotrust">GeoTrust SSL</a></button>
+  <button type="button" class="btn btn-primary font-weight-bolder active"><a class="text-decoration-none text-white" href="http://localhost:8000/ssl/symantec">Symantec SSL</a></button>
+  <button type="button" class="btn btn-primary font-weight-bolder"><a class="text-decoration-none text-white" href="http://localhost:8000/ssl/thawte">Thawte SSL</a></button>
+  <button type="button" class="btn btn-primary font-weight-bolder"><a class="text-decoration-none text-white" href="http://localhost:8000/ssl/globalsign">GlobalSign SSL</a></button>
+  <button type="button" class="btn btn-primary font-weight-bolder"><a class="text-decoration-none text-white" href="http://localhost:8000/ssl/freessl">Let's Enscrypt</a></button>
+</div>
+<div class="col-sm-10 col-lg-10 text-center mx-auto mt-5">
+  <div class="container">
+    <div class="table-responsive-lg">
+      <table class="table table-bordered">
+        <thead class="text-center">
+          <tr style="background-color: #00a3e6;">
+            <th></th>
+            <th><i class="fas fa-star mr-2" style="color: #e71c24;"></i>Cheapest</th>
+            <th><i class="fas fa-star mr-2" style="color: blue;"></i>Second</th>
+            <th><i class="fas fa-star mr-2" style="color: #febe0d;"></i>Third</th>
+            <th></th>
+          </tr style="border-bottom:  #7ca135;">
+        </thead>
+        <tbody>
+          <tr>
+            <td class="font-weight-bolder m-3 text-right">Secure Site</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          <tr>
+            <td class="font-weight-bolder m-3 text-right">Secure Site with EV</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="font-weight-bolder m-3 text-right">Secure Site Wildcard</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="font-weight-bolder m-3 text-right">Secure Site Pro</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="font-weight-bolder m-3 text-right">Secure Site Pro EV</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

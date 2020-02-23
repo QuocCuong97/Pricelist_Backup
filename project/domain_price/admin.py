@@ -8,8 +8,9 @@ class VendorAdmin(admin.ModelAdmin):
     search_fields = ['name']
     fieldsets = [
         ('Tên nhà cung cấp', {'fields': ['name']}),
+        ('Loại', {'fields': ['vendor_location']}),
         ('Trang chủ', {'fields': ['homepage']}),
-        ('Logo', {'fields': ['logo']})
+        ('Logo', {'fields': ['logo']}),
     ]
 
 class DomainAdmin(admin.ModelAdmin):

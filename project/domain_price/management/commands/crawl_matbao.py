@@ -107,8 +107,7 @@ class Command(BaseCommand):
     def handle(self, *args, **kwargs):
         def new_vn():
             lst = get_vn()
-            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='MatBao'), domain_type='vn', reg_origin=lst[0], reg_promotion=lst[1])
-
+            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='MatBao'), domain_type='vn', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1]})
         def new_comvn():
             lst = get_comvn()
             new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='MatBao'), domain_type='comvn', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1]})

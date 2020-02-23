@@ -21,6 +21,16 @@ class Command(BaseCommand):
             os.system("python manage.py crawl_hostvn -a")
             os.system("python manage.py crawl_tenten -a")
             os.system("python manage.py crawl_vhost -a")
+            os.system("python manage.py crawl_inet -a")
+            os.system("python manage.py crawl_bkhost -a")
+            os.system("python manage.py crawl_godaddy -a")
+            os.system("python manage.py crawl_viettel -a")
+            os.system("python manage.py crawl_tnd -a")
             os.system("python manage.py crawl_vinahost -a")
+            os.system("python manage.py crawl_zcom -a")
+            os.system("python manage.py crawl_azdigi -a")
+            os.system("python manage.py crawl_porkbun -a")
+            os.system("python manage.py crawl_hostinger -a")
+            
         else:
             print("Invalid options! Please type '-h' for help")

@@ -11,12 +11,12 @@ from domain_price.models import Domain, Vendor
 #     return render(request, 'pages/ssl.html')
 
 def index(request):
-    lst_vn = Domain.objects.all().filter(domain_type='vn').order_by('reg_promotion').values_list('reg_promotion', 'vendor__name', 'vendor__logo', 'vendor__homepage')
-    lst_comvn = Domain.objects.all().filter(domain_type='comvn').order_by('reg_promotion').values_list('reg_promotion', 'vendor__name', 'vendor__logo', 'vendor__homepage')
-    lst_com = Domain.objects.all().filter(domain_type='com').order_by('reg_promotion').values_list('reg_promotion', 'vendor__name', 'vendor__logo', 'vendor__homepage')
-    lst_net = Domain.objects.all().filter(domain_type='net').order_by('reg_promotion').values_list('reg_promotion', 'vendor__name', 'vendor__logo', 'vendor__homepage')
-    lst_org = Domain.objects.all().filter(domain_type='org').order_by('reg_promotion').values_list('reg_promotion', 'vendor__name', 'vendor__logo', 'vendor__homepage')
-    lst_info = Domain.objects.all().filter(domain_type='info').order_by('reg_promotion').values_list('reg_promotion', 'vendor__name', 'vendor__logo', 'vendor__homepage')
+    lst_vn = Domain.objects.all().filter(domain_type='vn').order_by('reg_promotion').values_list('reg_promotion', 'vendor__name', 'vendor__logo', 'vendor__homepage', 'reg_promotion_usd')
+    lst_comvn = Domain.objects.all().filter(domain_type='comvn').order_by('reg_promotion').values_list('reg_promotion', 'vendor__name', 'vendor__logo', 'vendor__homepage', 'reg_promotion_usd')
+    lst_com = Domain.objects.all().filter(domain_type='com').order_by('reg_promotion').values_list('reg_promotion', 'vendor__name', 'vendor__logo', 'vendor__homepage', 'reg_promotion_usd')
+    lst_net = Domain.objects.all().filter(domain_type='net').order_by('reg_promotion').values_list('reg_promotion', 'vendor__name', 'vendor__logo', 'vendor__homepage', 'reg_promotion_usd')
+    lst_org = Domain.objects.all().filter(domain_type='org').order_by('reg_promotion').values_list('reg_promotion', 'vendor__name', 'vendor__logo', 'vendor__homepage', 'reg_promotion_usd')
+    lst_info = Domain.objects.all().filter(domain_type='info').order_by('reg_promotion').values_list('reg_promotion', 'vendor__name', 'vendor__logo', 'vendor__homepage', 'reg_promotion_usd')
 
     count_vendor_vn = Domain.objects.all().filter(domain_type='vn').count() - 3
     count_vendor_comvn = Domain.objects.all().filter(domain_type='comvn').count() - 3
