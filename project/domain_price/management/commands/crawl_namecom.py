@@ -6,9 +6,8 @@ from django.core.management.base import BaseCommand, CommandError
 
 from domain_price.models import Domain, Vendor
 
-homepage = "https://porkbun.com/"
-urls = "https://porkbun.com/products/domains"
-source = "Porkbun"
+homepage = "https://www.name.com/"
+source = "Name.com"
 
 def get_dom(url):
     page = requests.get(url)
@@ -19,60 +18,53 @@ def get_rate():
     page = requests.get("https://www.freeforexapi.com/api/live?pairs=USDVND").text
     dic = json.loads(page)
     return dic['rates']["USDVND"]['rate']
-
+    
 def get_com():
-    dom_origin = get_dom(urls)
-    mark_origin = dom_origin.find("a", attrs={"href": "/tld/com"})
-    mark_origin_parent = mark_origin.parent.parent
-    reg_origin_usd = str(mark_origin_parent.contents[3].find(class_="sortValue").string)
+    dom_origin = get_dom("https://www.name.com/domains/com")
+    reg_origin_usd = dom_origin.find("strong", text="Registration:").nextSibling.nextSibling.nextSibling.string.strip('$')
     reg_origin = str(round(float(reg_origin_usd)  * get_rate()))[:-3] + '.' + str(round(float(reg_origin_usd)  * get_rate()))[-3:]
     reg_promotion_usd = reg_origin_usd
     reg_promotion = reg_origin
-    renew_price_usd = str(mark_origin_parent.contents[5].find(class_="sortValue").string)
+    renew_price_usd = dom_origin.find("strong", text="Renewal:").nextSibling.nextSibling.nextSibling.string.strip('$')
     renew_price = str(round(float(renew_price_usd) * get_rate()))[:-3] + '.' + str(round(float(renew_price_usd) * get_rate()))[-3:]
-    trans_price_usd = str(mark_origin_parent.contents[7].find(class_="sortValue").string)
+    trans_price_usd = dom_origin.find("strong", text="Transfer:").nextSibling.nextSibling.nextSibling.string.strip('$')
     trans_price = str(round(float(trans_price_usd) * get_rate()))[:-3] + '.' + str(round(float(trans_price_usd) * get_rate()))[-3:]
     return [reg_origin, reg_promotion, renew_price, trans_price, reg_origin_usd, reg_promotion_usd, renew_price_usd, trans_price_usd]
 
+
 def get_net():
-    dom_origin = get_dom(urls)
-    mark_origin = dom_origin.find("a", attrs={"href": "/tld/net"})
-    mark_origin_parent = mark_origin.parent.parent
-    reg_origin_usd = str(mark_origin_parent.contents[3].find(class_="sortValue").string)
+    dom_origin = get_dom("https://www.name.com/domains/net")
+    reg_origin_usd = dom_origin.find("strong", text="Registration:").nextSibling.nextSibling.nextSibling.string.strip('$')
     reg_origin = str(round(float(reg_origin_usd)  * get_rate()))[:-3] + '.' + str(round(float(reg_origin_usd)  * get_rate()))[-3:]
     reg_promotion_usd = reg_origin_usd
     reg_promotion = reg_origin
-    renew_price_usd = str(mark_origin_parent.contents[5].find(class_="sortValue").string)
+    renew_price_usd = dom_origin.find("strong", text="Renewal:").nextSibling.nextSibling.nextSibling.string.strip('$')
     renew_price = str(round(float(renew_price_usd) * get_rate()))[:-3] + '.' + str(round(float(renew_price_usd) * get_rate()))[-3:]
-    trans_price_usd = str(mark_origin_parent.contents[7].find(class_="sortValue").string)
+    trans_price_usd = dom_origin.find("strong", text="Transfer:").nextSibling.nextSibling.nextSibling.string.strip('$')
     trans_price = str(round(float(trans_price_usd) * get_rate()))[:-3] + '.' + str(round(float(trans_price_usd) * get_rate()))[-3:]
     return [reg_origin, reg_promotion, renew_price, trans_price, reg_origin_usd, reg_promotion_usd, renew_price_usd, trans_price_usd]
 
 def get_org():
-    dom_origin = get_dom(urls)
-    mark_origin = dom_origin.findAll("a", attrs={"href": "/tld/org"})
-    mark_origin_parent = mark_origin[1].parent.parent
-    reg_origin_usd = str(mark_origin_parent.contents[3].find(class_="sortValue").string)
+    dom_origin = get_dom("https://www.name.com/domains/org")
+    reg_origin_usd = dom_origin.find("strong", text="Registration:").nextSibling.nextSibling.nextSibling.string.strip('$')
     reg_origin = str(round(float(reg_origin_usd)  * get_rate()))[:-3] + '.' + str(round(float(reg_origin_usd)  * get_rate()))[-3:]
     reg_promotion_usd = reg_origin_usd
     reg_promotion = reg_origin
-    renew_price_usd = str(mark_origin_parent.contents[5].find(class_="sortValue").string)
+    renew_price_usd = dom_origin.find("strong", text="Renewal:").nextSibling.nextSibling.nextSibling.string.strip('$')
     renew_price = str(round(float(renew_price_usd) * get_rate()))[:-3] + '.' + str(round(float(renew_price_usd) * get_rate()))[-3:]
-    trans_price_usd = str(mark_origin_parent.contents[7].find(class_="sortValue").string)
+    trans_price_usd = dom_origin.find("strong", text="Transfer:").nextSibling.nextSibling.nextSibling.string.strip('$')
     trans_price = str(round(float(trans_price_usd) * get_rate()))[:-3] + '.' + str(round(float(trans_price_usd) * get_rate()))[-3:]
     return [reg_origin, reg_promotion, renew_price, trans_price, reg_origin_usd, reg_promotion_usd, renew_price_usd, trans_price_usd]
 
 def get_info():
-    dom_origin = get_dom(urls)
-    mark_origin = dom_origin.find("a", attrs={"href": "/tld/info"})
-    mark_origin_parent = mark_origin.parent.parent
-    reg_origin_usd = str(mark_origin_parent.contents[3].find(class_="sortValue").string)
+    dom_origin = get_dom("https://www.name.com/domains/info")
+    reg_origin_usd = dom_origin.find("strong", text="Registration:").nextSibling.nextSibling.nextSibling.string.strip('$')
     reg_origin = str(round(float(reg_origin_usd)  * get_rate()))[:-3] + '.' + str(round(float(reg_origin_usd)  * get_rate()))[-3:]
     reg_promotion_usd = reg_origin_usd
     reg_promotion = reg_origin
-    renew_price_usd = str(mark_origin_parent.contents[5].find(class_="sortValue").string)
+    renew_price_usd = dom_origin.find("strong", text="Renewal:").nextSibling.nextSibling.nextSibling.string.strip('$')
     renew_price = str(round(float(renew_price_usd) * get_rate()))[:-3] + '.' + str(round(float(renew_price_usd) * get_rate()))[-3:]
-    trans_price_usd = str(mark_origin_parent.contents[7].find(class_="sortValue").string)
+    trans_price_usd = dom_origin.find("strong", text="Transfer:").nextSibling.nextSibling.nextSibling.string.strip('$')
     trans_price = str(round(float(trans_price_usd) * get_rate()))[:-3] + '.' + str(round(float(trans_price_usd) * get_rate()))[-3:]
     return [reg_origin, reg_promotion, renew_price, trans_price, reg_origin_usd, reg_promotion_usd, renew_price_usd, trans_price_usd]
 
@@ -92,16 +84,16 @@ class Command(BaseCommand):
     def handle(self, *args, **kwargs):
         def new_com():
             lst = get_com()
-            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='Porkbun'), domain_type='com', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1], 'renew_price': lst[2], 'trans_price': lst[3], 'reg_origin_usd': lst[4], 'reg_promotion_usd': lst[5], 'renew_price_usd': lst[6], 'trans_price_usd': lst[7]})
+            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='Name.com'), domain_type='com', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1], 'renew_price': lst[2], 'trans_price': lst[3], 'reg_origin_usd': lst[4], 'reg_promotion_usd': lst[5], 'renew_price_usd': lst[6], 'trans_price_usd': lst[7]})
         def new_net():
             lst = get_net()
-            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='Porkbun'), domain_type='net', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1], 'renew_price': lst[2], 'trans_price': lst[3], 'reg_origin_usd': lst[4], 'reg_promotion_usd': lst[5], 'renew_price_usd': lst[6], 'trans_price_usd': lst[7]})
+            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='Name.com'), domain_type='net', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1], 'renew_price': lst[2], 'trans_price': lst[3], 'reg_origin_usd': lst[4], 'reg_promotion_usd': lst[5], 'renew_price_usd': lst[6], 'trans_price_usd': lst[7]})
         def new_org():
             lst = get_org()
-            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='Porkbun'), domain_type='org', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1], 'renew_price': lst[2], 'trans_price': lst[3], 'reg_origin_usd': lst[4], 'reg_promotion_usd': lst[5], 'renew_price_usd': lst[6], 'trans_price_usd': lst[7]})
+            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='Name.com'), domain_type='org', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1], 'renew_price': lst[2], 'trans_price': lst[3], 'reg_origin_usd': lst[4], 'reg_promotion_usd': lst[5], 'renew_price_usd': lst[6], 'trans_price_usd': lst[7]})
         def new_info():
             lst = get_info()
-            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='Porkbun'), domain_type='info', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1], 'renew_price': lst[2], 'trans_price': lst[3], 'reg_origin_usd': lst[4], 'reg_promotion_usd': lst[5], 'renew_price_usd': lst[6], 'trans_price_usd': lst[7]})
+            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='Name.com'), domain_type='info', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1], 'renew_price': lst[2], 'trans_price': lst[3], 'reg_origin_usd': lst[4], 'reg_promotion_usd': lst[5], 'renew_price_usd': lst[6], 'trans_price_usd': lst[7]})
         if kwargs['com']:
             new_com()
         elif kwargs['net']:

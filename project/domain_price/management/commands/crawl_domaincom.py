@@ -16,9 +16,9 @@ def get_dom(url):
     return dom
 
 def get_rate():
-    page = requests.get("https://free.currconv.com/api/v7/convert?q=USD_VND&compact=ultra&apiKey=f5cae0ce0037f83bc013").text
+    page = requests.get("https://www.freeforexapi.com/api/live?pairs=USDVND").text
     dic = json.loads(page)
-    return dic["USD_VND"]
+    return dic['rates']["USDVND"]['rate']
 
 def get_com():
     dom_origin = get_dom(urls)
