@@ -62,7 +62,7 @@ def get_org():
 def get_info():
     dom_origin = get_dom(urls)
     mark_origin = dom_origin.find('td', text=".INFO").parent
-    reg_origin_usd = mark_origin.contents[3].contents[0].text.strip('').strip('$').strip("\xa0")
+    reg_origin_usd = mark_origin.contents[3].contents[0].text.strip('').strip('$')
     reg_origin = str(round(float(reg_origin_usd)  * get_rate()))[:-3] + '.' + str(round(float(reg_origin_usd)  * get_rate()))[-3:]
     reg_promotion_usd = reg_origin_usd
     reg_promotion = reg_origin
