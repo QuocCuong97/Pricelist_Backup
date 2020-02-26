@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'domain_price',
     'ssl_price',
+    'hosting_price',
 ]
 
 MIDDLEWARE = [

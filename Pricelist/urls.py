@@ -20,4 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('domain_price.urls')),
     path('ssl/', include('ssl_price.urls')),
+    path('hosting/', include('hosting_price.urls')),
 ]

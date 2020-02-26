@@ -9,9 +9,17 @@
     <p>Tổng hợp bảng giá tên miền của các nhà cung cấp lớn ở Việt Nam và trên thế giới,
       giúp bạn mua được tên miền rẻ nhất, tiết kiệm nhất.</p>
     <div class="btn-group">
-      <button type="button" class="btn btn-primary font-weight-bolder">Đăng ký</button>
-      <button type="button" class="btn btn-primary font-weight-bolder">Gia hạn</button>
-      <button type="button" class="btn btn-primary font-weight-bolder">Transfer</button>
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <button type="button" class="nav-link active btn btn-primary rounded-0 font-weight-bolder" data-toggle="tab" href="#regTable">Đăng ký</button>
+        </li>
+        <li class="nav-item">
+          <button type="button" class="nav-link btn btn-primary rounded-0 font-weight-bolder" data-toggle="tab" href="#renewTable">Gia hạn</button>
+        </li>
+        <li class="nav-item">
+          <button type="button" class="nav-link btn btn-primary rounded-0 font-weight-bolder" data-toggle="tab" href="#transTable">Transfer</a>
+        </li>
+      </ul>
     </div>
     <form>
       <select name="cars" class="custom-select mt-3 w-25">
@@ -22,8 +30,8 @@
     </form>
   </div>
   <div class="col-sm-8 col-lg-9 mx-auto mt-3">
-    <div class="container">
-      <div class="table-responsive-lg">
+    <div class="container tab-content">
+      <div class="table-responsive-lg container tab-pane active" id="regTable">
         <table class="table table-bordered">
           <thead class="text-center">
             <tr style="background-color: #00a3e6;">
@@ -183,6 +191,156 @@
               <td><a class="text-dark text-decoration-none" href="{{ lst_third.5.3 }}"><img class="mr-1" width="15%" src="{% get_static_prefix %}{{lst_third.5.2}}">  {{ lst_third.5.1 }}</a></td>
               {% endif %}
               <td><a class="text-decoration-none" data-toggle="modal" href="#vnModal">+ {{ lst_count.5 }} more</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="table-responsive-lg container tab-pane fade" id="renewTable">
+        <table class="table table-bordered">
+          <thead class="text-center">
+            <tr style="background-color: #00a3e6;">
+              <th></th>
+              <th colspan="2"><i class="fas fa-star mr-2" style="color: #e71c24;"></i>Cheapest</th>
+              <th colspan="2"><i class="fas fa-star mr-2" style="color: blue;"></i>Second</th>
+              <th colspan="2"><i class="fas fa-star mr-2" style="color: #febe0d;"></i>Third</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="font-weight-bolder m-1">.COM</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="font-weight-bolder m-1">.NET</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="font-weight-bolder m-1">.ORG</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="font-weight-bolder m-1">.INFO</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="font-weight-bolder m-1">.COM.VN</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="font-weight-bolder m-1">.VN</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>    
+      </div>
+      <div class="table-responsive-lg container tab-pane fade" id="transTable">
+        <table class="table table-bordered">
+          <thead class="text-center">
+            <tr style="background-color: #00a3e6;">
+              <th></th>
+              <th colspan="2"><i class="fas fa-star mr-2" style="color: #e71c24;"></i>Cheapest</th>
+              <th colspan="2"><i class="fas fa-star mr-2" style="color: blue;"></i>Second</th>
+              <th colspan="2"><i class="fas fa-star mr-2" style="color: #febe0d;"></i>Third</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="font-weight-bolder m-1">.COM</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="font-weight-bolder m-1">.NET</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="font-weight-bolder m-1">.ORG</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="font-weight-bolder m-1">.INFO</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="font-weight-bolder m-1">.COM.VN</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="font-weight-bolder m-1">.VN</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
             </tr>
           </tbody>
         </table>

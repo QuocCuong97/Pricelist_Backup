@@ -60,13 +60,13 @@
     <div class="container">
 
       <div class="logo float-left">
-        <a href="#intro"><img src="{% static 'img/logo_new.png' %}" alt="" class="w-100"></a>
+        <a href="{%url 'domain'%}"><img src="{% static 'img/logo_new.png' %}" alt="" class="w-100"></a>
       </div>
 
       <nav class="main-nav float-right d-none d-lg-block">
         <ul>
-          <li class="active"><a href="#intro">Home</a></li>
-          <li><a href="http://localhost:8000/admin">Login</a></li>
+          <li class="active"><a href="{%url 'domain'%}">Home</a></li>
+          <li><a href="{%url 'admin:index'%}">Login</a></li>
           <!-- <li><button class="btn btn-primary mt-2 ml-3" onclick="myFunction()">Dark mode</button></li> -->
         </ul>
       </nav>
@@ -79,19 +79,12 @@
 
       <div class="intro-info">
         <h2>Bảng giá<br>Domain - Hosting - SSL</h2>
-        <!-- <div>
-          <a href="#about" class="btn-get-started scrollto">Get Started</a>
-          <a href="#services" class="btn-services scrollto">Our Services</a>
-        </div> -->
         <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
           <form>
             <div class="form-row">
               <div class="col-12 col-md-10 mb-2 mx-auto">
                 <input type="email" class="form-control form-control-lg mx-auto" placeholder="Nhập nội dung muốn tìm kiếm">
               </div>
-              <!-- <div class="col-12 col-md-3">
-                <button type="submit" class="btn btn-block btn-lg btn-primary">Sign up!</button>
-              </div> -->
             </div>
           </form>
         </div>
@@ -104,13 +97,13 @@
     <nav class="navbar navbar-expand-sm bg-primary justify-content-center">
       <ul class="navbar-nav mb-1" id="nav">
         <li class="nav-item ml-4 mr-4">
-          <a class="nav-link text-white font-weight-bold" href="http://localhost:8000/">Domain</a>
+          <a class="nav-link text-white font-weight-bold" href="{%url 'domain'%}">Domain</a>
         </li>
         <li class="nav-item ml-4 mr-4">
-          <a class="nav-link text-white font-weight-bold" href="hosting">Hosting</a>
+          <a class="nav-link text-white font-weight-bold" href="{%url 'hosting'%}">Hosting</a>
         </li>
         <li class="nav-item ml-4 mr-4">
-          <a class="nav-link text-white font-weight-bold" href="ssl/comodo">SSL</a>
+          <a class="nav-link text-white font-weight-bold" href="{%url 'ssl'%}">SSL</a>
         </li>
       </ul>
     </nav>

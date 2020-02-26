@@ -24,7 +24,7 @@ def get_rate():
 def get_com():
     dom_origin = requests.get(urls).text
     lst_json = json.loads(dom_origin)
-    reg_origin_usd = str(int(lst_json['data'][47]['price']))
+    reg_origin_usd = str(int(lst_json['data'][47]['price'])) + '.00'
     reg_origin = str(round(float(reg_origin_usd)  * get_rate()))[:-3] + '.' + str(round(float(reg_origin_usd)  * get_rate()))[-3:]
     reg_promotion_usd = reg_origin_usd
     reg_promotion = reg_origin
@@ -33,7 +33,7 @@ def get_com():
 def get_net():
     dom_origin = requests.get(urls).text
     lst_json = json.loads(dom_origin)
-    reg_origin_usd = str(int(lst_json['data'][179]['price']))
+    reg_origin_usd = str(int(lst_json['data'][179]['price'])) + '.00'
     reg_origin = str(round(float(reg_origin_usd)  * get_rate()))[:-3] + '.' + str(round(float(reg_origin_usd)  * get_rate()))[-3:]
     reg_promotion_usd = reg_origin_usd
     reg_promotion = reg_origin
@@ -42,7 +42,7 @@ def get_net():
 def get_org():
     dom_origin = requests.get(urls).text
     lst_json = json.loads(dom_origin)
-    reg_origin_usd = str(int(lst_json['data'][185]['price']))
+    reg_origin_usd = str(int(lst_json['data'][185]['price'])) + '.00'
     reg_origin = str(round(float(reg_origin_usd)  * get_rate()))[:-3] + '.' + str(round(float(reg_origin_usd)  * get_rate()))[-3:]
     reg_promotion_usd = reg_origin_usd
     reg_promotion = reg_origin
@@ -51,7 +51,7 @@ def get_org():
 def get_info():
     dom_origin = requests.get(urls).text
     lst_json = json.loads(dom_origin)
-    reg_origin_usd = str(int(lst_json['data'][140]['price']))
+    reg_origin_usd = str(int(lst_json['data'][140]['price'])) + '.00'
     reg_origin = str(round(float(reg_origin_usd)  * get_rate()))[:-3] + '.' + str(round(float(reg_origin_usd)  * get_rate()))[-3:]
     reg_promotion_usd = reg_origin_usd
     reg_promotion = reg_origin
