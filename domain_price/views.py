@@ -66,4 +66,3 @@ def index(request):
         
     
     return render(request, 'pages/domain.html', {'lst_cheapest': lst_cheapest, 'lst_second': lst_second, 'lst_third': lst_third, 'lst_other': lst_other, 'lst_count': lst_count})
-
