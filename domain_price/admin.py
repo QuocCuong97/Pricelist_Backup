@@ -50,4 +50,6 @@ admin.site.register(Vendor, VendorAdmin)
 # admin.site.register(Hosting, HostingAdmin)
 # admin.site.register(VPS, VPSAdmin)
 
-admin.site.site_header = "Trang quản trị Website"
+# admin.site.site_header = "Trang quản trị Website"
+admin.AdminSite.site_header = "Trang quản trị Website"
+admin.AdminSite.site_title = "Trang quản trị Website"
