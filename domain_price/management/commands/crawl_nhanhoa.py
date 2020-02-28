@@ -106,7 +106,6 @@ class Command(BaseCommand):
         def new_vn():
             lst = get_vn()
             new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='NhanHoa'), domain_type='vn', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1], 'renew_price': lst[2], 'trans_price': lst[3]})
-
         def new_comvn():
             lst = get_comvn()
             new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='NhanHoa'), domain_type='comvn', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1], 'renew_price': lst[2], 'trans_price': lst[3]})

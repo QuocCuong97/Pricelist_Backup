@@ -15,56 +15,73 @@ def get_dom(url):
 
 def get_vn():
     dom_origin = get_dom(urls)
-    mark_origin = dom_origin.find(attrs={"alt": "tên miền .vn"})
-    mark_origin_parent = mark_origin.parent
-    mark_origin_parent_sibling = mark_origin_parent.nextSibling
-    reg_origin = mark_origin_parent_sibling.string.strip("K") + ".000"
+    mark_origin = dom_origin.find('p', text='.vn').parent.parent
+    reg_origin = str(float(mark_origin.contents[1].text) + float(mark_origin.contents[2].text) + float(mark_origin.contents[3].text) * 110 // 100) + '00'
     reg_promotion = reg_origin
-    return [reg_origin,reg_promotion]
+    renew_price = str(float(mark_origin.contents[2].text) + float(mark_origin.contents[4].text) * 110 // 100) + '00'
+    trans_price = str(float(mark_origin.contents[5].text) + float(mark_origin.contents[6].text) * 110 // 100) + '00'
+    return [reg_origin, reg_promotion, renew_price, trans_price]
 
 def get_comvn():
     dom_origin = get_dom(urls)
-    mark_origin = dom_origin.find("span", text=".COM.VN")
-    mark_origin_sibling = mark_origin.nextSibling
-    reg_origin = mark_origin_sibling.string.strip(" K") + ".000"
+    mark_origin = dom_origin.find('p', text='.net.vn/ .com.vn/ .biz.vn').parent.parent
+    reg_origin = str(float(mark_origin.contents[1].text) + float(mark_origin.contents[2].text) + float(mark_origin.contents[3].text) * 110 // 100) + '00'
     reg_promotion = reg_origin
-    return [reg_origin,reg_promotion]
+    renew_price = str(float(mark_origin.contents[2].text) + float(mark_origin.contents[4].text) * 110 // 100) + '00'
+    trans_price = str(float(mark_origin.contents[5].text) + float(mark_origin.contents[6].text) * 110 // 100) + '00'
+    return [reg_origin, reg_promotion, renew_price, trans_price]
 
 def get_com():
     dom_origin = get_dom(urls)
-    mark_origin = dom_origin.find("p", text=".com ")
-    mark_origin_parent = mark_origin.parent
-    mark_origin_parent_sibling = mark_origin_parent.nextSibling.nextSibling
-    reg_origin = mark_origin_parent_sibling.p.span.contents[2].string.strip()
-    reg_promotion = reg_origin
-    return [reg_origin,reg_promotion]
+    mark_origin = dom_origin.find("p", text=".com ").parent.parent
+    try:
+        reg_promotion = mark_origin.contents[2].font.string.strip()
+        reg_origin = mark_origin.contents[2].strike.string.strip()
+        renew_price = reg_origin
+    except:
+        reg_origin = mark_origin.contents[2].span.string.strip()
+        reg_promotion = reg_origin
+        renew_price = reg_origin
+    return [reg_origin, reg_promotion, renew_price]
 
 def get_net():
     dom_origin = get_dom(urls)
-    mark_origin = dom_origin.find("p", text=".net")
-    mark_origin_parent = mark_origin.parent
-    mark_origin_parent_sibling = mark_origin_parent.nextSibling.nextSibling
-    reg_origin = mark_origin_parent_sibling.p.span.string
-    reg_promotion = reg_origin
-    return [reg_origin,reg_promotion]
+    mark_origin = dom_origin.find("p", text=".net").parent.parent
+    try:
+        reg_promotion = mark_origin.contents[2].font.string.strip()
+        reg_origin = mark_origin.contents[2].strike.string.strip()
+        renew_price = reg_origin
+    except:
+        reg_origin = mark_origin.contents[2].span.string.strip()
+        reg_promotion = reg_origin
+        renew_price = reg_origin
+    return [reg_origin, reg_promotion, renew_price]
 
 def get_org():
     dom_origin = get_dom(urls)
-    mark_origin = dom_origin.find("p", text=".org ")
-    mark_origin_parent = mark_origin.parent
-    mark_origin_parent_sibling = mark_origin_parent.nextSibling.nextSibling
-    reg_origin = mark_origin_parent_sibling.p.span.string
-    reg_promotion = reg_origin
-    return [reg_origin,reg_promotion]
+    mark_origin = dom_origin.find("p", text=".org ").parent.parent
+    try:
+        reg_promotion = mark_origin.contents[2].font.string.strip()
+        reg_origin = mark_origin.contents[2].strike.string.strip()
+        renew_price = reg_origin
+    except:
+        reg_origin = mark_origin.contents[2].span.string.strip()
+        reg_promotion = reg_origin
+        renew_price = reg_origin
+    return [reg_origin, reg_promotion, renew_price]
 
 def get_info():
     dom_origin = get_dom(urls)
-    mark_origin = dom_origin.find("p", text=".info ")
-    mark_origin_parent = mark_origin.parent
-    mark_origin_parent_sibling = mark_origin_parent.nextSibling.nextSibling
-    reg_origin = mark_origin_parent_sibling.p.span.contents[2].string.strip()
-    reg_promotion = reg_origin
-    return [reg_origin,reg_promotion]
+    mark_origin = dom_origin.find("p", text=".info ").parent.parent
+    try:
+        reg_promotion = mark_origin.contents[2].font.string.strip()
+        reg_origin = mark_origin.contents[2].strike.string.strip()
+        renew_price = reg_origin
+    except:
+        reg_origin = mark_origin.contents[2].span.string.strip()
+        reg_promotion = reg_origin
+        renew_price = reg_origin
+    return [reg_origin, reg_promotion, renew_price]
 
 
 class Command(BaseCommand):
@@ -82,23 +99,22 @@ class Command(BaseCommand):
     def handle(self, *args, **kwargs):
         def new_vn():
             lst = get_vn()
-            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='ESC'), domain_type='vn', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1]})
-
+            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='ESC'), domain_type='vn', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1], 'renew_price': lst[2], 'trans_price': lst[3]})
         def new_comvn():
             lst = get_comvn()
-            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='ESC'), domain_type='comvn', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1]})
+            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='ESC'), domain_type='comvn', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1], 'renew_price': lst[2], 'trans_price': lst[3]})
         def new_com():
             lst = get_com()
-            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='ESC'), domain_type='com', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1]})
+            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='ESC'), domain_type='com', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1], 'renew_price': lst[2]})
         def new_net():
             lst = get_net()
-            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='ESC'), domain_type='net', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1]})
+            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='ESC'), domain_type='net', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1], 'renew_price': lst[2]})
         def new_org():
             lst = get_org()
-            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='ESC'), domain_type='org', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1]})
+            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='ESC'), domain_type='org', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1], 'renew_price': lst[2]})
         def new_info():
             lst = get_info()
-            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='ESC'), domain_type='info', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1]})
+            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='ESC'), domain_type='info', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1], 'renew_price': lst[2]})
         if kwargs['vn']:
             new_vn()
         elif kwargs['comvn']:

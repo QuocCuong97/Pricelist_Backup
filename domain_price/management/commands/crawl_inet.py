@@ -109,7 +109,7 @@ class Command(BaseCommand):
             new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='iNET'), domain_type='org', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1], 'renew_price': lst[2], 'trans_price': lst[3]})
         def new_info():
             lst = get_info()
-            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='iNET'), domain_type='info', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1]})
+            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='iNET'), domain_type='info', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1], 'renew_price': lst[2], 'trans_price': lst[3]})
         if kwargs['vn']:
             new_vn()
         elif kwargs['comvn']:

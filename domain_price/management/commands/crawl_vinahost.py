@@ -16,51 +16,51 @@ def get_dom(url):
 
 def get_vn():
     dom_origin = get_dom(urls)
-    mark_origin = dom_origin.find('td', text=".vn")
-    mark_origin_content = mark_origin.parent.contents[11]
-    reg_origin = mark_origin_content.string.strip(" VNĐ").replace(",", ".")
+    mark_origin = dom_origin.find('td', text=".vn").parent
+    reg_origin = mark_origin.contents[11].string.strip(" VNĐ").replace(",", ".")
     reg_promotion = reg_origin
-    return [reg_origin,reg_promotion]
+    renew_price = mark_origin.contents[13].string.strip(" VNĐ").replace(",", ".")
+    return [reg_origin, reg_promotion, renew_price]
 
 def get_comvn():
     dom_origin = get_dom(urls)
-    mark_origin = dom_origin.find('td', text=".com.vn | .net.vn | .biz.vn")
-    mark_origin_content = mark_origin.parent.contents[11]
-    reg_origin = mark_origin_content.string.strip(" VNĐ").replace(",", ".")
+    mark_origin = dom_origin.find('td', text=".com.vn | .net.vn | .biz.vn").parent
+    reg_origin = mark_origin.contents[11].string.strip(" VNĐ").replace(",", ".")
     reg_promotion = reg_origin
-    return [reg_origin,reg_promotion]
+    renew_price = mark_origin.contents[13].string.strip(" VNĐ").replace(",", ".")
+    return [reg_origin, reg_promotion, renew_price]
 
 def get_com():
     dom_origin = get_dom(urls)
-    mark_origin = dom_origin.find('td', text=".com | .com.co | .cc | .xyz")
-    mark_origin_content = mark_origin.parent.contents[3]
-    reg_origin = mark_origin_content.string.strip("/năm").strip(" VNĐ").replace(",", ".")
+    mark_origin = dom_origin.find('td', text=".com | .com.co | .cc | .xyz").parent
+    reg_origin = mark_origin.contents[3].string.strip(" VNĐ/năm").replace(",", ".")
     reg_promotion = reg_origin
-    return [reg_origin,reg_promotion]
+    trans_price = mark_origin.contents[5].string.strip(" VNĐ/năm").replace(",", ".")
+    return [reg_origin, reg_promotion, trans_price]
 
 def get_net():
     dom_origin = get_dom(urls)
-    mark_origin = dom_origin.find('td', text=".net")
-    mark_origin_content = mark_origin.parent.contents[3]
-    reg_origin = mark_origin_content.string.strip("/năm").strip(" VNĐ").replace(",", ".")
+    mark_origin = dom_origin.find('td', text=".net").parent
+    reg_origin = mark_origin.contents[3].string.strip(" VNĐ/năm").replace(",", ".")
     reg_promotion = reg_origin
-    return [reg_origin,reg_promotion]
+    trans_price = mark_origin.contents[5].string.strip(" VNĐ/năm").replace(",", ".")
+    return [reg_origin, reg_promotion, trans_price]
 
 def get_org():
     dom_origin = get_dom(urls)
-    mark_origin = dom_origin.find('td', text=".org")
-    mark_origin_content = mark_origin.parent.contents[3]
-    reg_origin = mark_origin_content.string.strip("/năm").strip(" VNĐ").replace(",", ".")
+    mark_origin = dom_origin.find('td', text=".org").parent
+    reg_origin = mark_origin.contents[3].string.strip(" VNĐ/năm").replace(",", ".")
     reg_promotion = reg_origin
-    return [reg_origin,reg_promotion]
+    trans_price = mark_origin.contents[5].string.strip(" VNĐ/năm").replace(",", ".")
+    return [reg_origin, reg_promotion, trans_price]
 
 def get_info():
     dom_origin = get_dom(urls)
-    mark_origin = dom_origin.find('td', text=".info")
-    mark_origin_content = mark_origin.parent.contents[3]
-    reg_origin = mark_origin_content.string.strip("/năm").strip(" VNĐ").replace(",", ".")
+    mark_origin = dom_origin.find('td', text=".info").parent
+    reg_origin = mark_origin.contents[3].string.strip(" VNĐ/năm").replace(",", ".")
     reg_promotion = reg_origin
-    return [reg_origin,reg_promotion]
+    trans_price = mark_origin.contents[5].string.strip(" VNĐ/năm").replace(",", ".")
+    return [reg_origin, reg_promotion, trans_price]
 
 
 class Command(BaseCommand):
@@ -78,23 +78,23 @@ class Command(BaseCommand):
     def handle(self, *args, **kwargs):
         def new_vn():
             lst = get_vn()
-            new_objects = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='VinaHost'), domain_type='vn', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1]})
+            new_objects = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='VinaHost'), domain_type='vn', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1], 'renew_price': lst[2]})
 
         def new_comvn():
             lst = get_comvn()
-            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='VinaHost'), domain_type='comvn', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1]})
+            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='VinaHost'), domain_type='comvn', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1], 'renew_price': lst[2]})
         def new_com():
             lst = get_com()
-            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='VinaHost'), domain_type='com', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1]})
+            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='VinaHost'), domain_type='com', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1], 'trans_price': lst[2]})
         def new_net():
             lst = get_net()
-            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='VinaHost'), domain_type='net', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1]})
+            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='VinaHost'), domain_type='net', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1], 'trans_price': lst[2]})
         def new_org():
             lst = get_org()
-            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='VinaHost'), domain_type='org', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1]})
+            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='VinaHost'), domain_type='org', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1], 'trans_price': lst[2]})
         def new_info():
             lst = get_info()
-            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='VinaHost'), domain_type='info', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1]})
+            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='VinaHost'), domain_type='info', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1], 'trans_price': lst[2]})
         if kwargs['vn']:
             new_vn()
         elif kwargs['comvn']:

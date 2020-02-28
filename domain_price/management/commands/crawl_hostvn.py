@@ -1,3 +1,5 @@
+import json
+
 import requests
 from bs4 import BeautifulSoup
 from django.core.management.base import BaseCommand, CommandError
@@ -5,55 +7,61 @@ from django.core.management.base import BaseCommand, CommandError
 from domain_price.models import Domain, Vendor
 
 homepage = "https://hostvn.net/"
-urls = "https://hostvn.net/ten-mien?p=domain-pricing"
+urls = "https://hostvn.net/wp-admin/admin-ajax.php?action=domain-extension"
 source = "HostVN"
 
-def get_dom(url):
-    page = requests.get(url)
-    dom = BeautifulSoup(page.text, 'html5lib')
-    return dom
-
 def get_vn():
-    dom_origin = get_dom(urls)
-    mark_origin = dom_origin.find(class_="domain-extensions-list")
-    reg_origin = mark_origin.contents[15].contents[1].contents[3].contents[2].strip().rpartition('đ')[0]
+    dom_origin = requests.get(urls).text
+    lst_json = json.loads(dom_origin)
+    reg_origin = str(lst_json[57]['price'] * 110 // 100)[:-3] + '.' + str(lst_json[57]['price'] * 110 // 100)[-3:]
     reg_promotion = reg_origin
-    return [reg_origin, reg_promotion]
+    renew_price = str(lst_json[57]['renew'] * 110 // 100)[:-3] + '.' + str(lst_json[57]['renew'] * 110 // 100)[-3:]
+    return [reg_origin, reg_promotion, renew_price]
 
 def get_comvn():
-    dom_origin = get_dom(urls)
-    mark_origin = dom_origin.find(class_="domain-extensions-list")
-    reg_origin = mark_origin.contents[17].contents[1].contents[3].contents[2].strip("đ").strip().rpartition('đ')[0]
+    dom_origin = requests.get(urls).text
+    lst_json = json.loads(dom_origin)
+    reg_origin = str(lst_json[58]['price'] * 110 // 100)[:-3] + '.' + str(lst_json[58]['price'] * 110 // 100)[-3:]
     reg_promotion = reg_origin
-    return [reg_origin, reg_promotion]
+    renew_price = str(lst_json[58]['renew'] * 110 // 100)[:-3] + '.' + str(lst_json[58]['renew'] * 110 // 100)[-3:]
+    # trans_price = str(lst_json[58]['transfer'])[:-3] + '.' + str(lst_json[58]['transfer'])[-3:]
+    return [reg_origin, reg_promotion, renew_price]
 
 def get_com():
-    dom_origin = get_dom(urls)
-    mark_origin = dom_origin.find(class_="domain-extensions-list")
-    reg_origin = mark_origin.contents[1].contents[1].contents[1].contents[2].strip().rpartition('đ')[0]
+    dom_origin = requests.get(urls).text
+    lst_json = json.loads(dom_origin)
+    reg_origin = str(lst_json[0]['price'] * 110 // 100)[:-3] + '.' + str(lst_json[0]['price'] * 110 // 100)[-3:]
     reg_promotion = reg_origin
-    return [reg_origin, reg_promotion]
+    renew_price = str(lst_json[0]['renew'] * 110 // 100)[:-3] + '.' + str(lst_json[0]['renew'] * 110 // 100)[-3:]
+    trans_price = str(lst_json[0]['transfer'] * 110 // 100)[:-3] + '.' + str(lst_json[0]['transfer'] * 110 // 100)[-3:]
+    return [reg_origin, reg_promotion, renew_price, trans_price]
 
 def get_net():
-    dom_origin = get_dom(urls)
-    mark_origin = dom_origin.find(class_="domain-extensions-list")
-    reg_origin = mark_origin.contents[3].contents[1].contents[1].contents[2].strip().rpartition('đ')[0]
+    dom_origin = requests.get(urls).text
+    lst_json = json.loads(dom_origin)
+    reg_origin = str(lst_json[1]['price'] * 110 // 100)[:-3] + '.' + str(lst_json[1]['price'] * 110 // 100)[-3:]
     reg_promotion = reg_origin
-    return [reg_origin, reg_promotion]
+    renew_price = str(lst_json[1]['renew'] * 110 // 100)[:-3] + '.' + str(lst_json[1]['renew'] * 110 // 100)[-3:]
+    trans_price = str(lst_json[1]['transfer'] * 110 // 100)[:-3] + '.' + str(lst_json[1]['transfer'] * 110 // 100)[-3:]
+    return [reg_origin, reg_promotion, renew_price, trans_price]
 
 def get_org():
-    dom_origin = get_dom(urls)
-    mark_origin = dom_origin.find(class_="domain-extensions-list")
-    reg_origin = mark_origin.contents[5].contents[1].contents[1].contents[2].strip().rpartition('đ')[0]
+    dom_origin = requests.get(urls).text
+    lst_json = json.loads(dom_origin)
+    reg_origin = str(lst_json[2]['price'] * 110 // 100)[:-3] + '.' + str(lst_json[2]['price'] * 110 // 100)[-3:]
     reg_promotion = reg_origin
-    return [reg_origin, reg_promotion]
+    renew_price = str(lst_json[2]['renew'] * 110 // 100)[:-3] + '.' + str(lst_json[2]['renew'] * 110 // 100)[-3:]
+    trans_price = str(lst_json[2]['transfer'] * 110 // 100)[:-3] + '.' + str(lst_json[2]['transfer'] * 110 // 100)[-3:]
+    return [reg_origin, reg_promotion, renew_price, trans_price]
 
 def get_info():
-    dom_origin = get_dom(urls)
-    mark_origin = dom_origin.find(class_="domain-extensions-list")
-    reg_origin = mark_origin.contents[7].contents[1].contents[1].contents[2].strip().rpartition('đ')[0]
+    dom_origin = requests.get(urls).text
+    lst_json = json.loads(dom_origin)
+    reg_origin = str(lst_json[54]['price'] * 110 // 100)[:-3] + '.' + str(lst_json[54]['price'] * 110 // 100)[-3:]
     reg_promotion = reg_origin
-    return [reg_origin, reg_promotion]
+    renew_price = str(lst_json[54]['renew'] * 110 // 100)[:-3] + '.' + str(lst_json[54]['renew'] * 110 // 100)[-3:]
+    trans_price = str(lst_json[54]['transfer'] * 110 // 100)[:-3] + '.' + str(lst_json[54]['transfer'] * 110 // 100)[-3:]
+    return [reg_origin, reg_promotion, renew_price, trans_price]
 
 class Command(BaseCommand):
     help = 'Crawl PriceList'
@@ -70,23 +78,22 @@ class Command(BaseCommand):
     def handle(self, *args, **kwargs):
         def new_vn():
             lst = get_vn()
-            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='HostVN'), domain_type='vn', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1]})
-
+            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='HostVN'), domain_type='vn', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1], 'renew_price': lst[2]})
         def new_comvn():
             lst = get_comvn()
-            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='HostVN'), domain_type='comvn', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1]})
+            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='HostVN'), domain_type='comvn', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1], 'renew_price': lst[2]})
         def new_com():
             lst = get_com()
-            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='HostVN'), domain_type='com', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1]})
+            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='HostVN'), domain_type='com', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1], 'renew_price': lst[2], 'trans_price': lst[3]})
         def new_net():
             lst = get_net()
-            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='HostVN'), domain_type='net', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1]})
+            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='HostVN'), domain_type='net', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1], 'renew_price': lst[2], 'trans_price': lst[3]})
         def new_org():
             lst = get_org()
-            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='HostVN'), domain_type='org', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1]})
+            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='HostVN'), domain_type='org', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1], 'renew_price': lst[2], 'trans_price': lst[3]})
         def new_info():
             lst = get_info()
-            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='HostVN'), domain_type='info', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1]})
+            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='HostVN'), domain_type='info', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1], 'renew_price': lst[2], 'trans_price': lst[3]})
         if kwargs['vn']:
             new_vn()
         elif kwargs['comvn']:

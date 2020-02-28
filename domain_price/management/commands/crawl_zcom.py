@@ -8,6 +8,7 @@ from domain_price.models import Domain, Vendor
 
 homepage = "https://domain.z.com/vn/en/"
 urls = "https://domain.z.com/vn/cart/api/GetTldList/"
+urls_trans = "https://domain.z.com/vn/cart/api/GetDomainTransferPriceList/"
 source = "Z.com"
 
 def get_com():
@@ -15,28 +16,48 @@ def get_com():
     lst_json = json.loads(dom_origin)
     reg_origin = lst_json[1]['year1']
     reg_promotion = reg_origin
-    return [reg_origin,reg_promotion]
+    renew_price = lst_json[1]['preprice_year1']
+    reg_promotion = reg_origin
+    dom_trans = requests.get(urls_trans).text
+    lst_json_trans = json.loads(dom_trans)
+    trans_price = lst_json_trans[1]['price'][:-3] + '.' + lst_json_trans[1]['price'][-3:]
+    return [reg_origin, reg_promotion, renew_price, trans_price]
 
 def get_net():
     dom_origin = requests.get(urls).text
     lst_json = json.loads(dom_origin)
     reg_origin = lst_json[3]['year1']
     reg_promotion = reg_origin
-    return [reg_origin,reg_promotion]
+    renew_price = lst_json[3]['preprice_year1']
+    reg_promotion = reg_origin
+    dom_trans = requests.get(urls_trans).text
+    lst_json_trans = json.loads(dom_trans)
+    trans_price = lst_json_trans[3]['price'][:-3] + '.' + lst_json_trans[3]['price'][-3:]
+    return [reg_origin, reg_promotion, renew_price, trans_price]
 
 def get_org():
     dom_origin = requests.get(urls).text
     lst_json = json.loads(dom_origin)
     reg_origin = lst_json[7]['year1']
     reg_promotion = reg_origin
-    return [reg_origin,reg_promotion]
+    renew_price = lst_json[7]['preprice_year1']
+    reg_promotion = reg_origin
+    dom_trans = requests.get(urls_trans).text
+    lst_json_trans = json.loads(dom_trans)
+    trans_price = lst_json_trans[7]['price'][:-3] + '.' + lst_json_trans[7]['price'][-3:]
+    return [reg_origin, reg_promotion, renew_price, trans_price]
 
 def get_info():
     dom_origin = requests.get(urls).text
     lst_json = json.loads(dom_origin)
     reg_origin = lst_json[6]['year1']
     reg_promotion = reg_origin
-    return [reg_origin,reg_promotion]
+    renew_price = lst_json[6]['preprice_year1']
+    reg_promotion = reg_origin
+    dom_trans = requests.get(urls_trans).text
+    lst_json_trans = json.loads(dom_trans)
+    trans_price = lst_json_trans[6]['price'][:-3] + '.' + lst_json_trans[6]['price'][-3:]
+    return [reg_origin, reg_promotion, renew_price, trans_price]
 
 
 class Command(BaseCommand):
@@ -54,16 +75,16 @@ class Command(BaseCommand):
     def handle(self, *args, **kwargs):
         def new_com():
             lst = get_com()
-            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='Z.com'), domain_type='com', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1]})
+            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='Z.com'), domain_type='com', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1], 'renew_price': lst[2], 'trans_price': lst[3]})
         def new_net():
             lst = get_net()
-            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='Z.com'), domain_type='net', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1]})
+            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='Z.com'), domain_type='net', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1], 'renew_price': lst[2], 'trans_price': lst[3]})
         def new_org():
             lst = get_org()
-            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='Z.com'), domain_type='org', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1]})
+            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='Z.com'), domain_type='org', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1], 'renew_price': lst[2], 'trans_price': lst[3]})
         def new_info():
             lst = get_info()
-            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='Z.com'), domain_type='info', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1]})
+            new_object = Domain.objects.update_or_create(vendor=Vendor.objects.get(name='Z.com'), domain_type='info', defaults = {'reg_origin': lst[0], 'reg_promotion': lst[1], 'renew_price': lst[2], 'trans_price': lst[3]})
         if kwargs['com']:
             new_com()
         elif kwargs['net']:
