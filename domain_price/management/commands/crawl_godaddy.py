@@ -15,27 +15,27 @@ def get_dom(url):
 
 def get_com():
     dom_origin = get_dom("https://vn.godaddy.com/tlds/com-domain")
-    reg_origin = dom_origin.find('strike').string.strip(' ₫')
-    reg_promotion = dom_origin.find(class_="text-purchase").string.strip(' ₫')
+    reg_origin = dom_origin.find('strike').string.strip(' ₫').replace('.', '')
+    reg_promotion = dom_origin.find(class_="text-purchase").string.strip(' ₫').replace('.', '')
     note = "Yêu cầu mua 2 năm. Thanh toán cho năm thứ hai với giá 378.000"
     return [reg_origin, reg_promotion, note]
 
 def get_net():
     dom_origin = get_dom("https://vn.godaddy.com/tlds/net-domain")
-    reg_origin = dom_origin.find('strike').string.strip(' ₫')
-    reg_promotion = dom_origin.find(class_="text-purchase").string.strip(' ₫')
+    reg_origin = dom_origin.find('strike').string.strip(' ₫').replace('.', '')
+    reg_promotion = dom_origin.find(class_="text-purchase").string.strip(' ₫').replace('.', '')
     return [reg_origin, reg_promotion]
 
 def get_org():
     dom_origin = get_dom("https://vn.godaddy.com/tlds/org-domain")
-    reg_origin = dom_origin.find('strike').string.strip(' ₫')
-    reg_promotion = dom_origin.find(class_="text-purchase").string.strip(' ₫')
+    reg_origin = dom_origin.find('strike').string.strip(' ₫').replace('.', '')
+    reg_promotion = dom_origin.find(class_="text-purchase").string.strip(' ₫').replace('.', '')
     return [reg_origin, reg_promotion]
 
 def get_info():
     dom_origin = get_dom("https://vn.godaddy.com/tlds/info-domain")
-    reg_origin = dom_origin.find('strike').string.strip(' ₫')
-    reg_promotion = dom_origin.find(class_="text-purchase").string.strip(' ₫')
+    reg_origin = dom_origin.find('strike').string.strip(' ₫').replace('.', '')
+    reg_promotion = dom_origin.find(class_="text-purchase").string.strip(' ₫').replace('.', '')
     return [reg_origin, reg_promotion]
 
 

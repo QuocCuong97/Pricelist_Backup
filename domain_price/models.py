@@ -33,13 +33,13 @@ class Domain(models.Model):
         choices=domain_type_choices,
         default='vn',
     )
-    reg_origin = models.DecimalField(max_digits = 8, decimal_places = 3, null=True)
+    reg_origin = models.IntegerField(null=True)
     reg_origin_usd = models.CharField(max_length=10, blank=True)
-    reg_promotion = models.DecimalField(max_digits = 8, decimal_places = 3, null=True)
+    reg_promotion = models.IntegerField(null=True)
     reg_promotion_usd = models.CharField(max_length=10, blank=True)
-    renew_price = models.DecimalField(max_digits = 8, decimal_places = 3, null=True)
+    renew_price = models.IntegerField(null=True)
     renew_price_usd = models.CharField(max_length=10, blank=True)
-    trans_price = models.DecimalField(max_digits = 8, decimal_places = 3, null=True)
+    trans_price = models.IntegerField(null=True)
     trans_price_usd = models.CharField(max_length=10, blank=True)
     rates = models.CharField(max_length=10, blank=True)
     note = models.TextField(blank=True)

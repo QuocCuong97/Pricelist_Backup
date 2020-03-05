@@ -16,39 +16,37 @@ def get_dom(url):
 def get_vn():
     dom_origin = get_dom(urls)
     mark_origin = dom_origin.find("strong", text=".vn").parent.parent.parent
-    reg_origin = mark_origin.contents[11].div.strong.string.strip(' đ')
+    reg_origin = mark_origin.contents[11].div.strong.string.strip(' đ').replace('.', '')
     reg_promotion = reg_origin
-    renew_price = mark_origin.contents[13].div.strong.string.strip(' đ')
+    renew_price = mark_origin.contents[13].div.strong.string.strip(' đ').replace('.', '')
     return [reg_origin, reg_promotion, renew_price]
 
 def get_comvn():
     dom_origin = get_dom(urls)
     mark_origin = dom_origin.find("strong", text=".com.vn").parent.parent.parent
-    reg_origin = mark_origin.contents[11].div.strong.string.strip(' đ')
+    reg_origin = mark_origin.contents[11].div.strong.string.strip(' đ').replace('.', '')
     reg_promotion = reg_origin
-    renew_price = mark_origin.contents[13].div.strong.string.strip(' đ')
+    renew_price = mark_origin.contents[13].div.strong.string.strip(' đ').replace('.', '')
     return [reg_origin, reg_promotion, renew_price]
 
 def get_com():
     dom_origin = get_dom(urls)
     mark_origin = dom_origin.find("strong", text=".com").parent.parent.parent
-    mark_origin_content = mark_origin.contents[5].div.strong.string.strip(' đ').rpartition('.000')[0] + '000'
-    mark_origin_content_split = str(int(mark_origin_content) * 110 // 100)
-    reg_origin = mark_origin_content_split[:-3] + '.' + mark_origin_content_split[-3:]
+    mark_origin_content = mark_origin.contents[5].div.strong.string.strip(' đ').replace('.', '')
+    reg_origin = str(int(mark_origin_content) * 110 // 100)
     reg_promotion = reg_origin
     renew_price = reg_origin
-    trans_price = mark_origin.contents[7].div.strong.string.strip(' đ')
+    trans_price = mark_origin.contents[7].div.strong.string.strip(' đ').replace('.', '')
     return [reg_origin, reg_promotion, renew_price, trans_price]
 
 def get_net_org_info():
     dom_origin = get_dom(urls)
     mark_origin = dom_origin.find("strong", text=".net .org .info").parent.parent.parent
-    mark_origin_content = mark_origin.contents[5].div.strong.string.strip(' đ').rpartition('.000')[0] + '000'
-    mark_origin_content_split = str(int(mark_origin_content) * 110 // 100)
-    reg_origin = mark_origin_content_split[:-3] + '.' + mark_origin_content_split[-3:]
+    mark_origin_content = mark_origin.contents[5].div.strong.string.strip(' đ').replace('.', '')
+    reg_origin = str(int(mark_origin_content) * 110 // 100)
     reg_promotion = reg_origin
     renew_price = reg_origin
-    trans_price = mark_origin.contents[7].div.strong.string.strip(' đ')
+    trans_price = mark_origin.contents[7].div.strong.string.strip(' đ').replace('.', '')
     return [reg_origin, reg_promotion, renew_price, trans_price]
 
 

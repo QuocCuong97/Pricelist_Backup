@@ -17,70 +17,69 @@ def get_vn():
     dom_origin = get_dom(urls)
     mark = dom_origin.find("td", text=".vn").parent
     mark_origin = mark.contents[3].string.rpartition('.000')[0] + '000'
-    reg_origin = str(int(mark_origin) * 110 // 100).rpartition('000')[0] + '.000'
+    reg_origin = str(int(mark_origin) * 110 // 100)
     reg_promotion = reg_origin
     mark_renew = mark.contents[2].string.rpartition('.000')[0] + '000'
-    renew_price = str(int(mark_renew) * 110 // 100).rpartition('000')[0] + '.000'
+    renew_price = str(int(mark_renew) * 110 // 100)
     return [reg_origin, reg_promotion, renew_price]
 
 def get_comvn():
     dom_origin = get_dom(urls)
     mark = dom_origin.find("td", text=".com.vn").parent
     mark_origin = mark.contents[3].string.rpartition('.000')[0] + '000'
-    reg_origin = str(int(mark_origin) * 110 // 100).rpartition('000')[0] + '.000'
+    reg_origin = str(int(mark_origin) * 110 // 100)
     reg_promotion = reg_origin
     mark_renew = mark.contents[2].string.rpartition('.000')[0] + '000'
-    renew_price = str(int(mark_renew) * 110 // 100).rpartition('000')[0] + '.000'
+    renew_price = str(int(mark_renew) * 110 // 100)
     return [reg_origin, reg_promotion, renew_price]
 
 def get_com():
     dom_origin = get_dom(urls)
     mark = dom_origin.find("td", text=".com").parent
     mark_reg = mark.contents[4].string.rpartition('.000')[0] + '000'
-    reg_origin = (str(int(mark_reg) * 110 // 100))[:-3] + '.' + (str(int(mark_reg) * 110 // 100))[-3:]
+    reg_origin = str(int(mark_reg) * 110 // 100)
     reg_promotion = reg_origin
     mark_renew = mark.contents[3].string.rpartition('.000')[0] + '000'
-    renew_price = (str(int(mark_renew) * 110 // 100))[:-3] + '.' + (str(int(mark_renew) * 110 // 100))[-3:]
+    renew_price = str(int(mark_renew) * 110 // 100)
     mark_trans = mark.contents[2].string.rpartition('.000')[0] + '000'
-    trans_price = (str(int(mark_trans) * 110 // 100))[:-3] + '.' + (str(int(mark_trans) * 110 // 100))[-3:]
+    trans_price = str(int(mark_trans) * 110 // 100)
     return [reg_origin, reg_promotion, renew_price, trans_price]
 
 def get_net():
     dom_origin = get_dom(urls)
     mark = dom_origin.find("td", text=".net").parent
     mark_reg = mark.contents[4].string.rpartition('.000')[0] + '000'
-    reg_origin = (str(int(mark_reg) * 110 // 100))[:-3] + '.' + (str(int(mark_reg) * 110 // 100))[-3:]
+    reg_origin = str(int(mark_reg) * 110 // 100)
     reg_promotion = reg_origin
     mark_renew = mark.contents[3].string.rpartition('.000')[0] + '000'
-    renew_price = (str(int(mark_renew) * 110 // 100))[:-3] + '.' + (str(int(mark_renew) * 110 // 100))[-3:]
+    renew_price = str(int(mark_renew) * 110 // 100)
     mark_trans = mark.contents[2].string.rpartition('.000')[0] + '000'
-    trans_price = (str(int(mark_trans) * 110 // 100))[:-3] + '.' + (str(int(mark_trans) * 110 // 100))[-3:]
+    trans_price = str(int(mark_trans) * 110 // 100)
     return [reg_origin, reg_promotion, renew_price, trans_price]
 
 def get_org():
     dom_origin = get_dom(urls)
     mark = dom_origin.find("td", text=".org").parent
     mark_reg = mark.contents[4].string.rpartition('.000')[0] + '000'
-    reg_origin = (str(int(mark_reg) * 110 // 100))[:-3] + '.' + (str(int(mark_reg) * 110 // 100))[-3:]
+    reg_origin = str(int(mark_reg) * 110 // 100)
     reg_promotion = reg_origin
     mark_renew = mark.contents[3].string.rpartition('.000')[0] + '000'
-    renew_price = (str(int(mark_renew) * 110 // 100))[:-3] + '.' + (str(int(mark_renew) * 110 // 100))[-3:]
+    renew_price = str(int(mark_renew) * 110 // 100)
     mark_trans = mark.contents[2].string.rpartition('.000')[0] + '000'
-    trans_price = (str(int(mark_trans) * 110 // 100))[:-3] + '.' + (str(int(mark_trans) * 110 // 100))[-3:]
+    trans_price = str(int(mark_trans) * 110 // 100)
     return [reg_origin, reg_promotion, renew_price, trans_price]
 
 def get_info():
     dom_origin = get_dom(urls)
     mark = dom_origin.find("td", text=".info").parent
     mark_reg = mark.contents[4].string.rpartition('.000')[0] + '000'
-    reg_origin = (str(int(mark_reg) * 110 // 100))[:-3] + '.' + (str(int(mark_reg) * 110 // 100))[-3:]
+    reg_origin = str(int(mark_reg) * 110 // 100)
     reg_promotion = reg_origin
     mark_renew = mark.contents[3].string.rpartition('.000')[0] + '000'
-    renew_price = (str(int(mark_renew) * 110 // 100))[:-3] + '.' + (str(int(mark_renew) * 110 // 100))[-3:]
+    renew_price = str(int(mark_renew) * 110 // 100)
     mark_trans = mark.contents[2].string.rpartition('.000')[0] + '000'
-    trans_price = (str(int(mark_trans) * 110 // 100))[:-3] + '.' + (str(int(mark_trans) * 110 // 100))[-3:]
+    trans_price = str(int(mark_trans) * 110 // 100)
     return [reg_origin, reg_promotion, renew_price, trans_price]
-
 
 class Command(BaseCommand):
     help = 'Crawl PriceList'

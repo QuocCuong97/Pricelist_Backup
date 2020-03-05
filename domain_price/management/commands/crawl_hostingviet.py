@@ -16,54 +16,54 @@ def get_dom(url):
 def get_vn():
     dom_origin = get_dom(urls)
     mark_origin = dom_origin.find(class_="domain-table-common ten-mien-pho-bien-content")
-    reg_origin = mark_origin.contents[1].contents[3].contents[3].string.strip(" VNĐ").strip()
+    reg_origin = mark_origin.contents[1].contents[3].contents[3].string.strip(" VNĐ").strip().replace('.', '')
     reg_promotion = reg_origin
-    renew_price = mark_origin.contents[1].contents[5].contents[3].string.strip(" VNĐ").strip()
+    renew_price = mark_origin.contents[1].contents[5].contents[3].string.strip(" VNĐ").strip().replace('.', '')
     trans_price = renew_price
     return [reg_origin, reg_promotion, renew_price, trans_price]
 
 def get_com():
     dom_origin = get_dom(urls)
     mark_origin = dom_origin.find(class_="domain-table-common ten-mien-pho-bien-content")
-    reg_origin = mark_origin.contents[1].contents[3].contents[1].text.strip(" VNĐ").strip()
+    reg_origin = mark_origin.contents[1].contents[3].contents[1].text.strip(" VNĐ").strip().replace('.', '')
     reg_promotion = reg_origin
-    renew_price = mark_origin.contents[1].contents[5].contents[1].string.strip(" VNĐ").strip()
+    renew_price = mark_origin.contents[1].contents[5].contents[1].string.strip(" VNĐ").strip().replace('.', '')
     trans_price = renew_price
     return [reg_origin, reg_promotion, renew_price, trans_price]
 
 def get_comvn():
     dom_origin = get_dom(urls)
     mark_origin = dom_origin.find(class_="domain-table-common ten-mien-pho-bien-content")
-    reg_origin = mark_origin.contents[3].contents[3].contents[1].text.strip(" VNĐ").strip()
+    reg_origin = mark_origin.contents[3].contents[3].contents[1].text.strip(" VNĐ").strip().replace('.', '')
     reg_promotion = reg_origin
-    renew_price = mark_origin.contents[3].contents[5].contents[1].string.strip(" VNĐ").strip()
+    renew_price = mark_origin.contents[3].contents[5].contents[1].string.strip(" VNĐ").strip().replace('.', '')
     trans_price = renew_price
     return [reg_origin, reg_promotion, renew_price, trans_price]
 
 def get_net():
     dom_origin = get_dom(urls)
     mark_origin = dom_origin.find(class_="domain-table-common ten-mien-pho-bien-content")
-    reg_origin = mark_origin.contents[13].contents[3].contents[1].text.strip(" VNĐ").strip()
+    reg_origin = mark_origin.contents[13].contents[3].contents[1].text.strip(" VNĐ").strip().replace('.', '')
     reg_promotion = reg_origin
-    renew_price = mark_origin.contents[13].contents[5].contents[1].string.strip(" VNĐ").strip()
+    renew_price = mark_origin.contents[13].contents[5].contents[1].string.strip(" VNĐ").strip().replace('.', '')
     trans_price = renew_price
     return [reg_origin, reg_promotion, renew_price, trans_price]
 
 def get_org():
     dom_origin = get_dom(urls)
     mark_origin = dom_origin.find(class_="domain-table-common ten-mien-pho-bien-content")
-    reg_origin = mark_origin.contents[11].contents[3].contents[1].text.strip(" VNĐ").strip()
+    reg_origin = mark_origin.contents[11].contents[3].contents[1].text.strip(" VNĐ").strip().replace('.', '')
     reg_promotion = reg_origin
-    renew_price = mark_origin.contents[11].contents[5].contents[1].string.strip(" VNĐ").strip()
+    renew_price = mark_origin.contents[11].contents[5].contents[1].string.strip(" VNĐ").strip().replace('.', '')
     trans_price = renew_price
     return [reg_origin, reg_promotion, renew_price, trans_price]
 
 def get_info():
     dom_origin = get_dom(urls)
     mark_origin = dom_origin.find(class_="domain-table-common ten-mien-pho-bien-content")
-    reg_origin = mark_origin.contents[9].contents[3].contents[1].text.strip(" VNĐ").strip()
+    reg_origin = mark_origin.contents[9].contents[3].contents[1].text.strip(" VNĐ").strip().replace('.', '')
     reg_promotion = reg_origin
-    renew_price = mark_origin.contents[9].contents[5].contents[1].string.strip(" VNĐ").strip()
+    renew_price = mark_origin.contents[9].contents[5].contents[1].string.strip(" VNĐ").strip().replace('.', '')
     trans_price = renew_price
     return [reg_origin, reg_promotion, renew_price, trans_price]
 

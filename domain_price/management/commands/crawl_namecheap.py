@@ -24,13 +24,13 @@ def get_com():
     mark_origin = dom_origin.find(class_="gb-table gb-table--responsive")
     mark_origin_content = mark_origin.contents[1]
     reg_origin_usd = str(mark_origin_content.contents[0].contents[1].contents[0].contents[1].string)
-    reg_origin = str(round(float(reg_origin_usd)  * get_rate()))[:-3] + '.' + str(round(float(reg_origin_usd)  * get_rate()))[-3:]
+    reg_origin = round(float(reg_origin_usd)  * get_rate())
     reg_promotion_usd = reg_origin_usd
     reg_promotion = reg_origin
     renew_price_usd = str(mark_origin_content.contents[1].contents[1].contents[0].contents[1].string)
-    renew_price = str(round(float(renew_price_usd) * get_rate()))[:-3] + '.' + str(round(float(renew_price_usd) * get_rate()))[-3:]
+    renew_price = round(float(renew_price_usd) * get_rate())
     trans_price_usd = str(mark_origin_content.contents[2].contents[1].contents[0].contents[1].string)
-    trans_price = str(round(float(trans_price_usd) * get_rate()))[:-3] + '.' + str(round(float(trans_price_usd) * get_rate()))[-3:]
+    trans_price = round(float(trans_price_usd) * get_rate())
     return [reg_origin, reg_promotion, renew_price, trans_price, reg_origin_usd, reg_promotion_usd, renew_price_usd, trans_price_usd]
 
 def get_net():
@@ -38,13 +38,13 @@ def get_net():
     mark_origin = dom_origin.find(class_="gb-table gb-table--responsive")
     mark_origin_content = mark_origin.contents[1]
     reg_origin_usd = str(mark_origin_content.contents[0].contents[1].contents[0].contents[1].string)
-    reg_origin = str(round(float(reg_origin_usd)  * get_rate()))[:-3] + '.' + str(round(float(reg_origin_usd)  * get_rate()))[-3:]
+    reg_origin = round(float(reg_origin_usd)  * get_rate())
     reg_promotion_usd = reg_origin_usd
     reg_promotion = reg_origin
     renew_price_usd = str(mark_origin_content.contents[1].contents[1].contents[0].contents[1].string)
-    renew_price = str(round(float(renew_price_usd) * get_rate()))[:-3] + '.' + str(round(float(renew_price_usd) * get_rate()))[-3:]
+    renew_price = round(float(renew_price_usd) * get_rate())
     trans_price_usd = str(mark_origin_content.contents[2].contents[1].contents[0].contents[1].string)
-    trans_price = str(round(float(trans_price_usd) * get_rate()))[:-3] + '.' + str(round(float(trans_price_usd) * get_rate()))[-3:]
+    trans_price = round(float(trans_price_usd) * get_rate())
     return [reg_origin, reg_promotion, renew_price, trans_price, reg_origin_usd, reg_promotion_usd, renew_price_usd, trans_price_usd]
 
 def get_org():
@@ -52,13 +52,13 @@ def get_org():
     mark_origin = dom_origin.find(class_="gb-table gb-table--responsive")
     mark_origin_content = mark_origin.contents[1]
     reg_origin_usd = str(mark_origin_content.contents[0].contents[1].contents[0].contents[1].string)
-    reg_origin = str(round(float(reg_origin_usd)  * get_rate()))[:-3] + '.' + str(round(float(reg_origin_usd)  * get_rate()))[-3:]
+    reg_origin = round(float(reg_origin_usd)  * get_rate())
     reg_promotion_usd = reg_origin_usd
     reg_promotion = reg_origin
     renew_price_usd = str(mark_origin_content.contents[1].contents[1].contents[0].contents[1].string)
-    renew_price = str(round(float(renew_price_usd) * get_rate()))[:-3] + '.' + str(round(float(renew_price_usd) * get_rate()))[-3:]
+    renew_price = round(float(renew_price_usd) * get_rate())
     trans_price_usd = str(mark_origin_content.contents[2].contents[1].contents[0].contents[1].string)
-    trans_price = str(round(float(trans_price_usd) * get_rate()))[:-3] + '.' + str(round(float(trans_price_usd) * get_rate()))[-3:]
+    trans_price = round(float(trans_price_usd) * get_rate())
     return [reg_origin, reg_promotion, renew_price, trans_price, reg_origin_usd, reg_promotion_usd, renew_price_usd, trans_price_usd]
 
 def get_info():
@@ -66,7 +66,7 @@ def get_info():
     mark_origin = dom_origin.find(class_="default-table tld-prices six-cols flip-table")
     mark_origin_content = mark_origin.contents[3]
     reg_origin_usd = str(mark_origin_content.contents[1].contents[3].contents[2].strip().strip('$'))
-    reg_origin = str(round(float(reg_origin_usd)  * get_rate()))[:-3] + '.' + str(round(float(reg_origin_usd)  * get_rate()))[-3:]
+    reg_origin = round(float(reg_origin_usd)  * get_rate())
     reg_promotion_usd = reg_origin_usd
     reg_promotion = reg_origin
     return [reg_origin, reg_promotion, reg_origin_usd, reg_promotion_usd]

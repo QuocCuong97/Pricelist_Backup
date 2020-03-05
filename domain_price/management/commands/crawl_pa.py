@@ -17,69 +17,67 @@ def get_dom(url):
 def get_vn():
     dom_sale = get_dom(sale_url)
     mark_sale = dom_sale.find("strong", text=".VN")
-    reg_promotion = mark_sale.nextSibling.nextSibling.string + ".000"
+    reg_promotion = mark_sale.nextSibling.nextSibling.string + "000"
     dom_origin = get_dom(urls)
     mark_origin = dom_origin.findAll(attrs={"lang": "abcdefg_vn"})
-    reg_origin = str(float(mark_origin[0].contents[0].strip()) + float(mark_origin[1].contents[0].strip()) + \
-        float(mark_origin[1].parent.nextSibling.nextSibling.contents[0].strip()) * 110 // 100) + '00'
-    renew_price = str(float(mark_origin[1].contents[0].strip()) + \
-        float(mark_origin[1].parent.nextSibling.nextSibling.nextSibling.nextSibling.contents[0].strip()) * 110 // 100) + '00'
-    trans_price = str(float(mark_origin[2].contents[0].strip()) + float(mark_origin[3].contents[0].strip()) * 110 // 100) + '00'  
+    reg_origin = str(round(float(mark_origin[0].contents[0].strip()) + float(mark_origin[1].contents[0].strip()) + \
+        float(mark_origin[1].parent.nextSibling.nextSibling.contents[0].strip()) * 110 // 100)) + '000'
+    renew_price = str(round(float(mark_origin[1].contents[0].strip()) + \
+        float(mark_origin[1].parent.nextSibling.nextSibling.nextSibling.nextSibling.contents[0].strip()) * 110 // 100)) + '000'
+    trans_price = str(round(float(mark_origin[2].contents[0].strip()) + float(mark_origin[3].contents[0].strip()) * 110 // 100)) + '000'  
     return [reg_origin, reg_promotion, renew_price, trans_price]
 
 def get_comvn():
     dom_sale = get_dom(sale_url)
     mark_sale = dom_sale.find("strong", text=".COM.VN")
-    reg_promotion = mark_sale.nextSibling.nextSibling.string + ".000"
+    reg_promotion = mark_sale.nextSibling.nextSibling.string + "000"
     dom_origin = get_dom(urls)
     mark_origin = dom_origin.findAll(attrs={"lang": "abcdefg_com_vn"})
-    reg_origin = str(float(mark_origin[0].contents[0].strip()) + float(mark_origin[1].contents[0].strip()) + \
-        float(mark_origin[1].parent.nextSibling.nextSibling.contents[0].strip()) * 110 // 100) + '00'
-    renew_price = str(float(mark_origin[1].contents[0].strip()) + \
-        float(mark_origin[1].parent.nextSibling.nextSibling.nextSibling.nextSibling.contents[0].strip()) * 110 // 100) + '00'
-    trans_price = str(float(mark_origin[2].contents[0].strip()) + float(mark_origin[3].contents[0].strip()) * 110 // 100) + '00'  
+    reg_origin = str(round(float(mark_origin[0].contents[0].strip()) + float(mark_origin[1].contents[0].strip()) + \
+        float(mark_origin[1].parent.nextSibling.nextSibling.contents[0].strip()) * 110 // 100)) + '000'
+    renew_price = str(round(float(mark_origin[1].contents[0].strip()) + \
+        float(mark_origin[1].parent.nextSibling.nextSibling.nextSibling.nextSibling.contents[0].strip()) * 110 // 100)) + '000'
+    trans_price = str(round(float(mark_origin[2].contents[0].strip()) + float(mark_origin[3].contents[0].strip()) * 110 // 100)) + '000'  
     return [reg_origin, reg_promotion, renew_price, trans_price]
 
 def get_com():
     dom_origin = get_dom(urls)
     mark_origin = dom_origin.find('span', attrs={"id": "com"})
     mark_origin_parent = mark_origin.parent.parent
-    reg_origin = mark_origin_parent.contents[5].contents[1].text.strip("d")
+    reg_origin = mark_origin_parent.contents[5].contents[1].text.strip("d").replace('.', '')
     reg_promotion = reg_origin
-    renew_price = mark_origin_parent.contents[7].contents[1].text.strip(" d")
-    trans_price = mark_origin_parent.contents[9].contents[1].contents[0].strip()
+    renew_price = mark_origin_parent.contents[7].contents[1].text.strip(" d").replace('.', '')
+    trans_price = mark_origin_parent.contents[9].contents[1].contents[0].strip().replace('.', '')
     return [reg_origin, reg_promotion, renew_price, trans_price]
-
 
 def get_net():
     dom_origin = get_dom(urls)
     mark_origin = dom_origin.find('span', attrs={"id": "net"})
     mark_origin_parent = mark_origin.parent.parent
-    reg_origin = mark_origin_parent.contents[5].contents[1].text.strip("d")
+    reg_origin = mark_origin_parent.contents[5].contents[1].text.strip("d").replace('.', '')
     reg_promotion = reg_origin
-    renew_price = mark_origin_parent.contents[7].contents[1].text.strip(" d")
-    trans_price = mark_origin_parent.contents[9].contents[1].contents[0].strip()
+    renew_price = mark_origin_parent.contents[7].contents[1].text.strip(" d").replace('.', '')
+    trans_price = mark_origin_parent.contents[9].contents[1].contents[0].strip().replace('.', '')
     return [reg_origin, reg_promotion, renew_price, trans_price]
-
 
 def get_org():
     dom_origin = get_dom(urls)
     mark_origin = dom_origin.find('span', attrs={"id": "org"})
     mark_origin_parent = mark_origin.parent.parent
-    reg_origin = mark_origin_parent.contents[5].contents[1].text.strip("d")
+    reg_origin = mark_origin_parent.contents[5].contents[1].text.strip("d").replace('.', '')
     reg_promotion = reg_origin
-    renew_price = mark_origin_parent.contents[7].contents[1].text.strip(" d")
-    trans_price = mark_origin_parent.contents[9].contents[1].contents[0].strip()
+    renew_price = mark_origin_parent.contents[7].contents[1].text.strip(" d").replace('.', '')
+    trans_price = mark_origin_parent.contents[9].contents[1].contents[0].strip().replace('.', '')
     return [reg_origin, reg_promotion, renew_price, trans_price]
 
 def get_info():
     dom_origin = get_dom(urls)
     mark_origin = dom_origin.find('span', attrs={"id": "info"})
     mark_origin_parent = mark_origin.parent.parent
-    reg_origin = mark_origin_parent.contents[5].contents[1].text.strip("d")
+    reg_origin = mark_origin_parent.contents[5].contents[1].text.strip("d").replace('.', '')
     reg_promotion = reg_origin
-    renew_price = mark_origin_parent.contents[7].contents[1].text.strip(" d")
-    trans_price = mark_origin_parent.contents[9].contents[1].contents[0].strip()
+    renew_price = mark_origin_parent.contents[7].contents[1].text.strip(" d").replace('.', '')
+    trans_price = mark_origin_parent.contents[9].contents[1].contents[0].strip().replace('.', '')
     return [reg_origin, reg_promotion, renew_price, trans_price]
 
 

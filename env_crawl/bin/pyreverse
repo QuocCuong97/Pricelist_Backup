@@ -1,4 +1,4 @@
-#!/home/cuongnq/project/env_crawl/bin/python
+#!/home/cuongnq/project/env_crawl/bin/python3.6
 # -*- coding: utf-8 -*-
 import re
 import sys

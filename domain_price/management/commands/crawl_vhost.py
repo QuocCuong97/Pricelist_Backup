@@ -16,55 +16,55 @@ def get_dom(url):
 def get_vn():
     dom_origin = get_dom(urls)
     mark_origin = dom_origin.find(attrs={"id": "ptiv8s0NDNac"}).tbody
-    reg_origin = mark_origin.contents[7].contents[2].string.strip(" VND").replace(",", ".")
+    reg_origin = mark_origin.contents[7].contents[2].string.strip(" VND").replace(",", "")
     reg_promotion = reg_origin
-    renew_price = mark_origin.contents[7].contents[4].string.strip(" VND").replace(",", ".")
-    trans_price = mark_origin.contents[7].contents[3].string.strip(" VND").replace(",", ".")
+    renew_price = mark_origin.contents[7].contents[4].string.strip(" VND").replace(",", "")
+    trans_price = mark_origin.contents[7].contents[3].string.strip(" VND").replace(",", "")
     return [reg_origin, reg_promotion, renew_price, trans_price]
     
 def get_com():
     dom_origin = get_dom(urls)
     mark_origin = dom_origin.find(attrs={"id": "ptiv8s0NDNac"}).tbody
-    reg_origin = mark_origin.contents[1].contents[2].string.strip(" VND").replace(",", ".")
+    reg_origin = mark_origin.contents[1].contents[2].string.strip(" VND").replace(",", "")
     reg_promotion = reg_origin
-    renew_price = mark_origin.contents[1].contents[4].string.strip(" VND").replace(",", ".")
-    trans_price = mark_origin.contents[1].contents[3].string.strip(" VND").replace(",", ".")
+    renew_price = mark_origin.contents[1].contents[4].string.strip(" VND").replace(",", "")
+    trans_price = mark_origin.contents[1].contents[3].string.strip(" VND").replace(",", "")
     return [reg_origin, reg_promotion, renew_price, trans_price]
     
 def get_comvn():
     dom_origin = get_dom(urls)
     mark_origin = dom_origin.find(attrs={"id": "ptiv8s0NDNac"}).tbody
-    reg_origin = mark_origin.contents[8].contents[2].string.strip(" VND").replace(",", ".")
+    reg_origin = mark_origin.contents[8].contents[2].string.strip(" VND").replace(",", "")
     reg_promotion = reg_origin
-    renew_price = mark_origin.contents[8].contents[4].string.strip(" VND").replace(",", ".")
-    trans_price = mark_origin.contents[8].contents[3].string.strip(" VND").replace(",", ".")
+    renew_price = mark_origin.contents[8].contents[4].string.strip(" VND").replace(",", "")
+    trans_price = mark_origin.contents[8].contents[3].string.strip(" VND").replace(",", "")
     return [reg_origin, reg_promotion, renew_price, trans_price]
     
 def get_net():
     dom_origin = get_dom(urls)
     mark_origin = dom_origin.find(attrs={"id": "ptiv8s0NDNac"}).tbody
-    reg_origin = mark_origin.contents[2].contents[2].string.strip(" VND").replace(",", ".")
+    reg_origin = mark_origin.contents[2].contents[2].string.strip(" VND").replace(",", "")
     reg_promotion = reg_origin
-    renew_price = mark_origin.contents[2].contents[4].string.strip(" VND").replace(",", ".")
-    trans_price = mark_origin.contents[2].contents[3].string.strip(" VND").replace(",", ".")
+    renew_price = mark_origin.contents[2].contents[4].string.strip(" VND").replace(",", "")
+    trans_price = mark_origin.contents[2].contents[3].string.strip(" VND").replace(",", "")
     return [reg_origin, reg_promotion, renew_price, trans_price]
     
 def get_org():
     dom_origin = get_dom(urls)
     mark_origin = dom_origin.find(attrs={"id": "ptiv8s0NDNac"}).tbody
-    reg_origin = mark_origin.contents[3].contents[2].string.strip(" VND").replace(",", ".")
+    reg_origin = mark_origin.contents[3].contents[2].string.strip(" VND").replace(",", "")
     reg_promotion = reg_origin
-    renew_price = mark_origin.contents[3].contents[4].string.strip(" VND").replace(",", ".")
-    trans_price = mark_origin.contents[3].contents[3].string.strip(" VND").replace(",", ".")
+    renew_price = mark_origin.contents[3].contents[4].string.strip(" VND").replace(",", "")
+    trans_price = mark_origin.contents[3].contents[3].string.strip(" VND").replace(",", "")
     return [reg_origin, reg_promotion, renew_price, trans_price]
 
 def get_info():
     dom_origin = get_dom(urls)
     mark_origin = dom_origin.find(attrs={"id": "ptiv8s0NDNac"}).tbody
-    reg_origin = mark_origin.contents[5].contents[2].string.strip(" VND").replace(",", ".")
+    reg_origin = mark_origin.contents[5].contents[2].string.strip(" VND").replace(",", "")
     reg_promotion = reg_origin
-    renew_price = mark_origin.contents[5].contents[4].string.strip(" VND").replace(",", ".")
-    trans_price = mark_origin.contents[5].contents[3].string.strip(" VND").replace(",", ".")
+    renew_price = mark_origin.contents[5].contents[4].string.strip(" VND").replace(",", "")
+    trans_price = mark_origin.contents[5].contents[3].string.strip(" VND").replace(",", "")
     return [reg_origin, reg_promotion, renew_price, trans_price]
 
 

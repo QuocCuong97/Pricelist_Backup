@@ -25,11 +25,11 @@ def get_com():
     mark_origin = dom_origin.find(attrs={"rel": ".com"})
     mark_origin_parent = mark_origin.parent.parent
     reg_origin_usd = str(mark_origin_parent.find(class_="registration-price").string.strip().strip('$ per year'))
-    reg_origin = str(round(float(reg_origin_usd)  * get_rate()))[:-3] + '.' + str(round(float(reg_origin_usd)  * get_rate()))[-3:]
+    reg_origin = round(float(reg_origin_usd)  * get_rate())
     reg_promotion_usd = reg_origin_usd
     reg_promotion = reg_origin
     renew_price_usd = str(mark_origin_parent.find(class_="renewal-price").string.strip().strip('$ per year'))
-    renew_price = str(round(float(reg_origin_usd)  * get_rate()))[:-3] + '.' + str(round(float(reg_origin_usd)  * get_rate()))[-3:]
+    renew_price = round(float(renew_price_usd)  * get_rate())
     return [reg_origin, reg_promotion, renew_price, reg_origin_usd, reg_promotion_usd, renew_price_usd]
 
 def get_net():
@@ -37,11 +37,11 @@ def get_net():
     mark_origin = dom_origin.find(attrs={"rel": ".net"})
     mark_origin_parent = mark_origin.parent.parent
     reg_origin_usd = str(mark_origin_parent.find(class_="registration-price").string.strip().strip('$ per year'))
-    reg_origin = str(round(float(reg_origin_usd)  * get_rate()))[:-3] + '.' + str(round(float(reg_origin_usd)  * get_rate()))[-3:]
+    reg_origin = round(float(reg_origin_usd)  * get_rate())
     reg_promotion_usd = reg_origin_usd
     reg_promotion = reg_origin
     renew_price_usd = str(mark_origin_parent.find(class_="renewal-price").string.strip().strip('$ per year'))
-    renew_price = str(round(float(reg_origin_usd)  * get_rate()))[:-3] + '.' + str(round(float(reg_origin_usd)  * get_rate()))[-3:]
+    renew_price = round(float(renew_price_usd)  * get_rate())
     return [reg_origin, reg_promotion, renew_price, reg_origin_usd, reg_promotion_usd, renew_price_usd]
 
 def get_org():
@@ -49,11 +49,11 @@ def get_org():
     mark_origin = dom_origin.find(attrs={"rel": ".org"})
     mark_origin_parent = mark_origin.parent.parent
     reg_origin_usd = str(mark_origin_parent.find(class_="registration-price").string.strip().strip('$ per year'))
-    reg_origin = str(round(float(reg_origin_usd)  * get_rate()))[:-3] + '.' + str(round(float(reg_origin_usd)  * get_rate()))[-3:]
+    reg_origin = round(float(reg_origin_usd)  * get_rate())
     reg_promotion_usd = reg_origin_usd
     reg_promotion = reg_origin
     renew_price_usd = str(mark_origin_parent.find(class_="renewal-price").string.strip().strip('$ per year'))
-    renew_price = str(round(float(reg_origin_usd)  * get_rate()))[:-3] + '.' + str(round(float(reg_origin_usd)  * get_rate()))[-3:]
+    renew_price = round(float(renew_price_usd)  * get_rate())
     return [reg_origin, reg_promotion, renew_price, reg_origin_usd, reg_promotion_usd, renew_price_usd]
 
 def get_info():
@@ -61,11 +61,11 @@ def get_info():
     mark_origin = dom_origin.find(attrs={"rel": ".info"})
     mark_origin_parent = mark_origin.parent.parent
     reg_origin_usd = str(mark_origin_parent.find(class_="registration-price").string.strip().strip('$ per year'))
-    reg_origin = str(round(float(reg_origin_usd)  * get_rate()))[:-3] + '.' + str(round(float(reg_origin_usd)  * get_rate()))[-3:]
+    reg_origin = round(float(reg_origin_usd)  * get_rate())
     reg_promotion_usd = reg_origin_usd
     reg_promotion = reg_origin
     renew_price_usd = str(mark_origin_parent.find(class_="renewal-price").string.strip().strip('$ per year'))
-    renew_price = str(round(float(reg_origin_usd)  * get_rate()))[:-3] + '.' + str(round(float(reg_origin_usd)  * get_rate()))[-3:]
+    renew_price = round(float(renew_price_usd)  * get_rate())
     return [reg_origin, reg_promotion, renew_price, reg_origin_usd, reg_promotion_usd, renew_price_usd]
 
 

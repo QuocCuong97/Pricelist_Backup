@@ -24,68 +24,68 @@ def get_com():
     dom_reg = get_dom("https://registrar.epik.com/prices/registration/toplevel")
     mark_reg = dom_reg.find(class_="tld-pricing _price-subblock0")
     reg_origin_usd = mark_reg.contents[1].find('td', text=".com").nextSibling.nextSibling.string.strip('$')
-    reg_origin = str(round(float(reg_origin_usd)  * get_rate()))[:-3] + '.' + str(round(float(reg_origin_usd)  * get_rate()))[-3:]
+    reg_origin = round(float(reg_origin_usd)  * get_rate())
     reg_promotion_usd = reg_origin_usd
     reg_promotion = reg_origin
     dom_renew = get_dom("https://registrar.epik.com/prices/renew/toplevel")
     mark_renew = dom_renew.find(class_="tld-pricing _price-subblock0")
     renew_price_usd = mark_renew.contents[1].find('td', text=".com").nextSibling.nextSibling.string.strip('$')
-    renew_price = str(round(float(renew_price_usd)  * get_rate()))[:-3] + '.' + str(round(float(renew_price_usd)  * get_rate()))[-3:]
+    renew_price = round(float(renew_price_usd)  * get_rate())
     dom_trans = get_dom("https://registrar.epik.com/prices/transfer-redeem/toplevel")
     mark_trans = dom_trans.find(class_="tld-pricing _price-subblock1")
     trans_price_usd = mark_trans.contents[1].find('td', text=".com").nextSibling.nextSibling.string.strip('$')
-    trans_price = str(round(float(trans_price_usd)  * get_rate()))[:-3] + '.' + str(round(float(trans_price_usd)  * get_rate()))[-3:]
+    trans_price = round(float(trans_price_usd)  * get_rate())
     return [reg_origin, reg_promotion, renew_price, trans_price, reg_origin_usd, reg_promotion_usd, renew_price_usd, trans_price_usd]
 
 def get_net():
     dom_reg = get_dom("https://registrar.epik.com/prices/registration/toplevel")
     mark_reg = dom_reg.find(class_="tld-pricing _price-subblock0")
     reg_origin_usd = mark_reg.contents[1].find('td', text=".net").nextSibling.nextSibling.string.strip('$')
-    reg_origin = str(round(float(reg_origin_usd)  * get_rate()))[:-3] + '.' + str(round(float(reg_origin_usd)  * get_rate()))[-3:]
+    reg_origin = round(float(reg_origin_usd)  * get_rate())
     reg_promotion_usd = reg_origin_usd
     reg_promotion = reg_origin
     dom_renew = get_dom("https://registrar.epik.com/prices/renew/toplevel")
     mark_renew = dom_renew.find(class_="tld-pricing _price-subblock0")
     renew_price_usd = mark_renew.contents[1].find('td', text=".net").nextSibling.nextSibling.string.strip('$')
-    renew_price = str(round(float(renew_price_usd)  * get_rate()))[:-3] + '.' + str(round(float(renew_price_usd)  * get_rate()))[-3:]
+    renew_price = round(float(renew_price_usd)  * get_rate())
     dom_trans = get_dom("https://registrar.epik.com/prices/transfer-redeem/toplevel")
     mark_trans = dom_trans.find(class_="tld-pricing _price-subblock1")
     trans_price_usd = mark_trans.contents[1].find('td', text=".net").nextSibling.nextSibling.string.strip('$')
-    trans_price = str(round(float(trans_price_usd)  * get_rate()))[:-3] + '.' + str(round(float(trans_price_usd)  * get_rate()))[-3:]
+    trans_price = round(float(trans_price_usd)  * get_rate())
     return [reg_origin, reg_promotion, renew_price, trans_price, reg_origin_usd, reg_promotion_usd, renew_price_usd, trans_price_usd]
 
 def get_org():
     dom_reg = get_dom("https://registrar.epik.com/prices/registration/toplevel")
     mark_reg = dom_reg.find(class_="tld-pricing _price-subblock0")
     reg_origin_usd = mark_reg.contents[1].find('td', text=".org").nextSibling.nextSibling.string.strip('$')
-    reg_origin = str(round(float(reg_origin_usd)  * get_rate()))[:-3] + '.' + str(round(float(reg_origin_usd)  * get_rate()))[-3:]
+    reg_origin = round(float(reg_origin_usd)  * get_rate())
     reg_promotion_usd = reg_origin_usd
     reg_promotion = reg_origin
     dom_renew = get_dom("https://registrar.epik.com/prices/renew/toplevel")
     mark_renew = dom_renew.find(class_="tld-pricing _price-subblock0")
     renew_price_usd = mark_renew.contents[1].find('td', text=".org").nextSibling.nextSibling.string.strip('$')
-    renew_price = str(round(float(renew_price_usd)  * get_rate()))[:-3] + '.' + str(round(float(renew_price_usd)  * get_rate()))[-3:]
+    renew_price = round(float(renew_price_usd)  * get_rate())
     dom_trans = get_dom("https://registrar.epik.com/prices/transfer-redeem/toplevel")
     mark_trans = dom_trans.find(class_="tld-pricing _price-subblock1")
     trans_price_usd = mark_trans.contents[1].find('td', text=".org").nextSibling.nextSibling.string.strip('$')
-    trans_price = str(round(float(trans_price_usd)  * get_rate()))[:-3] + '.' + str(round(float(trans_price_usd)  * get_rate()))[-3:]
+    trans_price = round(float(trans_price_usd)  * get_rate())
     return [reg_origin, reg_promotion, renew_price, trans_price, reg_origin_usd, reg_promotion_usd, renew_price_usd, trans_price_usd]
 
 def get_info():
     dom_reg = get_dom("https://registrar.epik.com/prices/registration/toplevel")
     mark_reg = dom_reg.find(class_="tld-pricing _price-subblock0")
     reg_origin_usd = mark_reg.contents[1].find('td', text=".info").nextSibling.nextSibling.string.strip('$')
-    reg_origin = str(round(float(reg_origin_usd)  * get_rate()))[:-3] + '.' + str(round(float(reg_origin_usd)  * get_rate()))[-3:]
+    reg_origin = round(float(reg_origin_usd)  * get_rate())
     reg_promotion_usd = reg_origin_usd
     reg_promotion = reg_origin
     dom_renew = get_dom("https://registrar.epik.com/prices/renew/toplevel")
     mark_renew = dom_renew.find(class_="tld-pricing _price-subblock0")
     renew_price_usd = mark_renew.contents[1].find('td', text=".info").nextSibling.nextSibling.string.strip('$')
-    renew_price = str(round(float(renew_price_usd)  * get_rate()))[:-3] + '.' + str(round(float(renew_price_usd)  * get_rate()))[-3:]
+    renew_price = round(float(renew_price_usd)  * get_rate())
     dom_trans = get_dom("https://registrar.epik.com/prices/transfer-redeem/toplevel")
     mark_trans = dom_trans.find(class_="tld-pricing _price-subblock1")
     trans_price_usd = mark_trans.contents[1].find('td', text=".info").nextSibling.nextSibling.string.strip('$')
-    trans_price = str(round(float(trans_price_usd)  * get_rate()))[:-3] + '.' + str(round(float(trans_price_usd)  * get_rate()))[-3:]
+    trans_price = round(float(trans_price_usd)  * get_rate())
     return [reg_origin, reg_promotion, renew_price, trans_price, reg_origin_usd, reg_promotion_usd, renew_price_usd, trans_price_usd]
 
 

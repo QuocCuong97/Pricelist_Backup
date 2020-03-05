@@ -23,52 +23,52 @@ def get_com():
     dom_reg = get_dom("https://www.exabytes.com/domains/domain-name-search")
     mark_reg = dom_reg.find(class_="caption_column column_0_responsive")
     reg_origin_usd = mark_reg.contents[0].contents[3].contents[0].contents[0].contents[0].contents[1].string.strip('$/yr')
-    reg_origin = str(round(float(reg_origin_usd)  * get_rate()))[:-3] + '.' + str(round(float(reg_origin_usd)  * get_rate()))[-3:]
+    reg_origin = round(float(reg_origin_usd)  * get_rate())
     reg_promotion_usd = reg_origin_usd
     reg_promotion = reg_origin
     dom_trans = get_dom("https://www.exabytes.com/domains/domain-transfer")
     mark_trans = dom_trans.find(class_="column_1 column_1_responsive")
     trans_price_usd = mark_trans.contents[0].contents[3].contents[0].contents[0].contents[0].contents[1].string.strip('$/yr')
-    trans_price = str(round(float(reg_origin_usd)  * get_rate()))[:-3] + '.' + str(round(float(reg_origin_usd)  * get_rate()))[-3:]
+    trans_price = round(float(trans_price_usd)  * get_rate())
     return [reg_origin, reg_promotion, trans_price, reg_origin_usd, reg_promotion_usd, trans_price_usd]
 
 def get_net():
     dom_reg = get_dom("https://www.exabytes.com/domains/domain-name-search")
     mark_reg = dom_reg.find(class_="column_1 column_1_responsive")
     reg_origin_usd = mark_reg.contents[0].contents[3].contents[0].contents[0].contents[0].contents[1].string.strip('$/yr')
-    reg_origin = str(round(float(reg_origin_usd)  * get_rate()))[:-3] + '.' + str(round(float(reg_origin_usd)  * get_rate()))[-3:]
+    reg_origin = round(float(reg_origin_usd)  * get_rate())
     reg_promotion_usd = reg_origin_usd
     reg_promotion = reg_origin
     dom_trans = get_dom("https://www.exabytes.com/domains/domain-transfer")
     mark_trans = dom_trans.find(class_="column_1 column_1_responsive")
     trans_price_usd = mark_trans.contents[0].contents[4].contents[0].contents[0].contents[0].contents[1].string.strip('$/yr')
-    trans_price = str(round(float(reg_origin_usd)  * get_rate()))[:-3] + '.' + str(round(float(reg_origin_usd)  * get_rate()))[-3:]
+    trans_price = round(float(trans_price_usd)  * get_rate())
     return [reg_origin, reg_promotion, trans_price, reg_origin_usd, reg_promotion_usd, trans_price_usd]
 
 def get_org():
     dom_reg = get_dom("https://www.exabytes.com/domains/domain-name-search")
     mark_reg = dom_reg.find(class_="column_3 column_3_responsive")
     reg_origin_usd = mark_reg.contents[0].contents[3].contents[0].contents[0].contents[0].contents[1].string.strip('$/yr')
-    reg_origin = str(round(float(reg_origin_usd)  * get_rate()))[:-3] + '.' + str(round(float(reg_origin_usd)  * get_rate()))[-3:]
+    reg_origin = round(float(reg_origin_usd)  * get_rate())
     reg_promotion_usd = reg_origin_usd
     reg_promotion = reg_origin
     dom_trans = get_dom("https://www.exabytes.com/domains/domain-transfer")
     mark_trans = dom_trans.find(class_="column_1 column_1_responsive")
     trans_price_usd = mark_trans.contents[0].contents[5].contents[0].contents[0].contents[0].contents[1].string.strip('$/yr')
-    trans_price = str(round(float(reg_origin_usd)  * get_rate()))[:-3] + '.' + str(round(float(reg_origin_usd)  * get_rate()))[-3:]
+    trans_price = round(float(trans_price_usd)  * get_rate())
     return [reg_origin, reg_promotion, trans_price, reg_origin_usd, reg_promotion_usd, trans_price_usd]
 
 def get_info():
     dom_reg = get_dom("https://www.exabytes.com/domains/domain-name-search")
     mark_reg = dom_reg.find(class_="column_2 column_2_responsive")
     reg_origin_usd = mark_reg.contents[0].contents[4].contents[0].contents[0].contents[0].contents[1].string.strip('$/yr')
-    reg_origin = str(round(float(reg_origin_usd)  * get_rate()))[:-3] + '.' + str(round(float(reg_origin_usd)  * get_rate()))[-3:]
+    reg_origin = round(float(reg_origin_usd)  * get_rate())
     reg_promotion_usd = reg_origin_usd
     reg_promotion = reg_origin
     dom_trans = get_dom("https://www.exabytes.com/domains/domain-transfer")
     mark_trans = dom_trans.find(class_="column_1 column_1_responsive")
     trans_price_usd = mark_trans.contents[0].contents[4].contents[0].contents[0].contents[0].contents[1].string.strip('$/yr')
-    trans_price = str(round(float(reg_origin_usd)  * get_rate()))[:-3] + '.' + str(round(float(reg_origin_usd)  * get_rate()))[-3:]
+    trans_price = round(float(trans_price_usd)  * get_rate())
     return [reg_origin, reg_promotion, trans_price, reg_origin_usd, reg_promotion_usd, trans_price_usd]
 
 

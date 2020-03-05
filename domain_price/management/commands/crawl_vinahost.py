@@ -17,49 +17,49 @@ def get_dom(url):
 def get_vn():
     dom_origin = get_dom(urls)
     mark_origin = dom_origin.find('td', text=".vn").parent
-    reg_origin = mark_origin.contents[11].string.strip(" VNĐ").replace(",", ".")
+    reg_origin = mark_origin.contents[11].string.strip(" VNĐ").replace(",", "")
     reg_promotion = reg_origin
-    renew_price = mark_origin.contents[13].string.strip(" VNĐ").replace(",", ".")
+    renew_price = mark_origin.contents[13].string.strip(" VNĐ").replace(",", "")
     return [reg_origin, reg_promotion, renew_price]
 
 def get_comvn():
     dom_origin = get_dom(urls)
     mark_origin = dom_origin.find('td', text=".com.vn | .net.vn | .biz.vn").parent
-    reg_origin = mark_origin.contents[11].string.strip(" VNĐ").replace(",", ".")
+    reg_origin = mark_origin.contents[11].string.strip(" VNĐ").replace(",", "")
     reg_promotion = reg_origin
-    renew_price = mark_origin.contents[13].string.strip(" VNĐ").replace(",", ".")
+    renew_price = mark_origin.contents[13].string.strip(" VNĐ").replace(",", "")
     return [reg_origin, reg_promotion, renew_price]
 
 def get_com():
     dom_origin = get_dom(urls)
     mark_origin = dom_origin.find('td', text=".com | .com.co | .cc | .xyz").parent
-    reg_origin = mark_origin.contents[3].string.strip(" VNĐ/năm").replace(",", ".")
+    reg_origin = mark_origin.contents[3].string.strip(" VNĐ/năm").replace(",", "")
     reg_promotion = reg_origin
-    trans_price = mark_origin.contents[5].string.strip(" VNĐ/năm").replace(",", ".")
+    trans_price = mark_origin.contents[5].string.strip(" VNĐ/năm").replace(",", "")
     return [reg_origin, reg_promotion, trans_price]
 
 def get_net():
     dom_origin = get_dom(urls)
     mark_origin = dom_origin.find('td', text=".net").parent
-    reg_origin = mark_origin.contents[3].string.strip(" VNĐ/năm").replace(",", ".")
+    reg_origin = mark_origin.contents[3].string.strip(" VNĐ/năm").replace(",", "")
     reg_promotion = reg_origin
-    trans_price = mark_origin.contents[5].string.strip(" VNĐ/năm").replace(",", ".")
+    trans_price = mark_origin.contents[5].string.strip(" VNĐ/năm").replace(",", "")
     return [reg_origin, reg_promotion, trans_price]
 
 def get_org():
     dom_origin = get_dom(urls)
     mark_origin = dom_origin.find('td', text=".org").parent
-    reg_origin = mark_origin.contents[3].string.strip(" VNĐ/năm").replace(",", ".")
+    reg_origin = mark_origin.contents[3].string.strip(" VNĐ/năm").replace(",", "")
     reg_promotion = reg_origin
-    trans_price = mark_origin.contents[5].string.strip(" VNĐ/năm").replace(",", ".")
+    trans_price = mark_origin.contents[5].string.strip(" VNĐ/năm").replace(",", "")
     return [reg_origin, reg_promotion, trans_price]
 
 def get_info():
     dom_origin = get_dom(urls)
     mark_origin = dom_origin.find('td', text=".info").parent
-    reg_origin = mark_origin.contents[3].string.strip(" VNĐ/năm").replace(",", ".")
+    reg_origin = mark_origin.contents[3].string.strip(" VNĐ/năm").replace(",", "")
     reg_promotion = reg_origin
-    trans_price = mark_origin.contents[5].string.strip(" VNĐ/năm").replace(",", ".")
+    trans_price = mark_origin.contents[5].string.strip(" VNĐ/năm").replace(",", "")
     return [reg_origin, reg_promotion, trans_price]
 
 

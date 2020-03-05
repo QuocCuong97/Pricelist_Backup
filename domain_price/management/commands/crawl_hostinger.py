@@ -17,7 +17,7 @@ def get_com():
     dom_origin = get_dom(urls)
     mark_origin = dom_origin.find(attrs={"src": "//www.hostinger.vn/assets/images/domain-checker/icon-com-8a6804da47.svg"})
     mark_origin_parent = mark_origin.parent
-    reg_origin = mark_origin_parent.contents[3].contents[1].contents[0].text.strip('VNĐ/năm').strip()
+    reg_origin = mark_origin_parent.contents[3].contents[1].contents[0].text.strip('VNĐ/năm').strip().replace('.', '')
     reg_promotion = reg_origin
     return [reg_origin, reg_promotion]
 

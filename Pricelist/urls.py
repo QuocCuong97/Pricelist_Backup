@@ -21,4 +21,5 @@ urlpatterns = [
     path('', include('domain_price.urls')),
     path('ssl/', include('ssl_price.urls')),
     path('hosting/', include('hosting_price.urls')),
+    path('vps/', include('vps.urls')),
 ]

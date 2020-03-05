@@ -23,53 +23,53 @@ def get_rate():
 def get_com():
     dom_origin = get_dom(urls)
     mark_origin = dom_origin.find('td', text=".COM").parent
-    reg_origin_usd = mark_origin.contents[3].contents[0].text.strip('').strip('$').strip("\xa0")
-    reg_origin = str(round(float(reg_origin_usd)  * get_rate()))[:-3] + '.' + str(round(float(reg_origin_usd)  * get_rate()))[-3:]
+    reg_origin_usd = mark_origin.contents[3].contents[0].text.strip('').strip('$').strip()
+    reg_origin = round(float(reg_origin_usd)  * get_rate())
     reg_promotion_usd = reg_origin_usd
     reg_promotion = reg_origin
-    renew_price_usd = mark_origin.contents[5].contents[0].text.strip('').strip('$').strip("\xa0")
-    renew_price = str(round(float(renew_price_usd)  * get_rate()))[:-3] + '.' + str(round(float(renew_price_usd)  * get_rate()))[-3:]
-    trans_price_usd = mark_origin.contents[7].contents[0].text.strip('').strip('$').strip("\xa0")
-    trans_price = str(round(float(trans_price_usd)  * get_rate()))[:-3] + '.' + str(round(float(trans_price_usd)  * get_rate()))[-3:]
+    renew_price_usd = mark_origin.contents[5].contents[0].text.strip('').strip('$').strip()
+    renew_price = round(float(renew_price_usd)  * get_rate())
+    trans_price_usd = mark_origin.contents[7].contents[0].text.strip('').strip('$').strip()
+    trans_price = round(float(trans_price_usd)  * get_rate())
     return [reg_origin, reg_promotion, renew_price, trans_price, reg_origin_usd, reg_promotion_usd, renew_price_usd, trans_price_usd]
 
 def get_net():
     dom_origin = get_dom(urls)
     mark_origin = dom_origin.find('td', text=".NET").parent
-    reg_origin_usd = mark_origin.contents[3].contents[0].text.strip('').strip('$').strip("\xa0")
-    reg_origin = str(round(float(reg_origin_usd)  * get_rate()))[:-3] + '.' + str(round(float(reg_origin_usd)  * get_rate()))[-3:]
+    reg_origin_usd = mark_origin.contents[3].contents[0].text.strip('').strip('$').strip()
+    reg_origin = round(float(reg_origin_usd)  * get_rate())
     reg_promotion_usd = reg_origin_usd
     reg_promotion = reg_origin
-    renew_price_usd = mark_origin.contents[5].contents[0].text.strip('').strip('$').strip("\xa0")
-    renew_price = str(round(float(renew_price_usd)  * get_rate()))[:-3] + '.' + str(round(float(renew_price_usd)  * get_rate()))[-3:]
-    trans_price_usd = mark_origin.contents[7].contents[0].text.strip('').strip('$').strip("\xa0")
-    trans_price = str(round(float(trans_price_usd)  * get_rate()))[:-3] + '.' + str(round(float(trans_price_usd)  * get_rate()))[-3:]
+    renew_price_usd = mark_origin.contents[5].contents[0].text.strip('').strip('$').strip()
+    renew_price = round(float(renew_price_usd)  * get_rate())
+    trans_price_usd = mark_origin.contents[7].contents[0].text.strip('').strip('$').strip()
+    trans_price = round(float(trans_price_usd)  * get_rate())
     return [reg_origin, reg_promotion, renew_price, trans_price, reg_origin_usd, reg_promotion_usd, renew_price_usd, trans_price_usd]
 
 def get_org():
     dom_origin = get_dom(urls)
     mark_origin = dom_origin.find('td', text=".ORG").parent
-    reg_origin_usd = mark_origin.contents[3].contents[0].text.strip('').strip('$').strip("\xa0")
-    reg_origin = str(round(float(reg_origin_usd)  * get_rate()))[:-3] + '.' + str(round(float(reg_origin_usd)  * get_rate()))[-3:]
+    reg_origin_usd = mark_origin.contents[3].contents[0].text.strip('').strip('$').strip()
+    reg_origin = round(float(reg_origin_usd)  * get_rate())
     reg_promotion_usd = reg_origin_usd
     reg_promotion = reg_origin
-    renew_price_usd = mark_origin.contents[5].contents[0].text.strip('').strip('$').strip("\xa0")
-    renew_price = str(round(float(renew_price_usd)  * get_rate()))[:-3] + '.' + str(round(float(renew_price_usd)  * get_rate()))[-3:]
-    trans_price_usd = mark_origin.contents[7].contents[0].text.strip('').strip('$').strip("\xa0")
-    trans_price = str(round(float(trans_price_usd)  * get_rate()))[:-3] + '.' + str(round(float(trans_price_usd)  * get_rate()))[-3:]
+    renew_price_usd = mark_origin.contents[5].contents[0].text.strip('').strip('$').strip()
+    renew_price = round(float(renew_price_usd)  * get_rate())
+    trans_price_usd = mark_origin.contents[7].contents[0].text.strip('').strip('$').strip()
+    trans_price = round(float(trans_price_usd)  * get_rate())
     return [reg_origin, reg_promotion, renew_price, trans_price, reg_origin_usd, reg_promotion_usd, renew_price_usd, trans_price_usd]
 
 def get_info():
     dom_origin = get_dom(urls)
     mark_origin = dom_origin.find('td', text=".INFO").parent
-    reg_origin_usd = mark_origin.contents[3].contents[0].text.strip('').strip('$')
-    reg_origin = str(round(float(reg_origin_usd)  * get_rate()))[:-3] + '.' + str(round(float(reg_origin_usd)  * get_rate()))[-3:]
+    reg_origin_usd = mark_origin.contents[3].contents[0].text.strip('').strip('$').strip()
+    reg_origin = round(float(reg_origin_usd)  * get_rate())
     reg_promotion_usd = reg_origin_usd
     reg_promotion = reg_origin
-    renew_price_usd = mark_origin.contents[5].contents[0].text.strip('').strip('$').strip("\xa0")
-    renew_price = str(round(float(renew_price_usd)  * get_rate()))[:-3] + '.' + str(round(float(renew_price_usd)  * get_rate()))[-3:]
-    trans_price_usd = mark_origin.contents[7].contents[0].text.strip('').strip('$').strip("\xa0")
-    trans_price = str(round(float(trans_price_usd)  * get_rate()))[:-3] + '.' + str(round(float(trans_price_usd)  * get_rate()))[-3:]
+    renew_price_usd = mark_origin.contents[5].contents[0].text.strip('').strip('$').strip()
+    renew_price = round(float(renew_price_usd)  * get_rate())
+    trans_price_usd = mark_origin.contents[7].contents[0].text.strip('').strip('$').strip()
+    trans_price = round(float(trans_price_usd)  * get_rate())
     return [reg_origin, reg_promotion, renew_price, trans_price, reg_origin_usd, reg_promotion_usd, renew_price_usd, trans_price_usd]
 
 

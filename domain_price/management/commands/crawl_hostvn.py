@@ -13,54 +13,54 @@ source = "HostVN"
 def get_vn():
     dom_origin = requests.get(urls).text
     lst_json = json.loads(dom_origin)
-    reg_origin = str(lst_json[57]['price'] * 110 // 100)[:-3] + '.' + str(lst_json[57]['price'] * 110 // 100)[-3:]
+    reg_origin = str(lst_json[57]['price'] * 110 // 100)
     reg_promotion = reg_origin
-    renew_price = str(lst_json[57]['renew'] * 110 // 100)[:-3] + '.' + str(lst_json[57]['renew'] * 110 // 100)[-3:]
+    renew_price = str(lst_json[57]['renew'] * 110 // 100)
     return [reg_origin, reg_promotion, renew_price]
 
 def get_comvn():
     dom_origin = requests.get(urls).text
     lst_json = json.loads(dom_origin)
-    reg_origin = str(lst_json[58]['price'] * 110 // 100)[:-3] + '.' + str(lst_json[58]['price'] * 110 // 100)[-3:]
+    reg_origin = str(lst_json[58]['price'] * 110 // 100)
     reg_promotion = reg_origin
-    renew_price = str(lst_json[58]['renew'] * 110 // 100)[:-3] + '.' + str(lst_json[58]['renew'] * 110 // 100)[-3:]
-    # trans_price = str(lst_json[58]['transfer'])[:-3] + '.' + str(lst_json[58]['transfer'])[-3:]
+    renew_price = str(lst_json[58]['renew'] * 110 // 100)
+    # trans_price = str(lst_json[58]['transfer'])
     return [reg_origin, reg_promotion, renew_price]
 
 def get_com():
     dom_origin = requests.get(urls).text
     lst_json = json.loads(dom_origin)
-    reg_origin = str(lst_json[0]['price'] * 110 // 100)[:-3] + '.' + str(lst_json[0]['price'] * 110 // 100)[-3:]
+    reg_origin = str(lst_json[0]['price'] * 110 // 100)
     reg_promotion = reg_origin
-    renew_price = str(lst_json[0]['renew'] * 110 // 100)[:-3] + '.' + str(lst_json[0]['renew'] * 110 // 100)[-3:]
-    trans_price = str(lst_json[0]['transfer'] * 110 // 100)[:-3] + '.' + str(lst_json[0]['transfer'] * 110 // 100)[-3:]
+    renew_price = str(lst_json[0]['renew'] * 110 // 100)
+    trans_price = str(lst_json[0]['transfer'] * 110 // 100)
     return [reg_origin, reg_promotion, renew_price, trans_price]
 
 def get_net():
     dom_origin = requests.get(urls).text
     lst_json = json.loads(dom_origin)
-    reg_origin = str(lst_json[1]['price'] * 110 // 100)[:-3] + '.' + str(lst_json[1]['price'] * 110 // 100)[-3:]
+    reg_origin = str(lst_json[1]['price'] * 110 // 100)
     reg_promotion = reg_origin
-    renew_price = str(lst_json[1]['renew'] * 110 // 100)[:-3] + '.' + str(lst_json[1]['renew'] * 110 // 100)[-3:]
-    trans_price = str(lst_json[1]['transfer'] * 110 // 100)[:-3] + '.' + str(lst_json[1]['transfer'] * 110 // 100)[-3:]
+    renew_price = str(lst_json[1]['renew'] * 110 // 100)
+    trans_price = str(lst_json[1]['transfer'] * 110 // 100)
     return [reg_origin, reg_promotion, renew_price, trans_price]
 
 def get_org():
     dom_origin = requests.get(urls).text
     lst_json = json.loads(dom_origin)
-    reg_origin = str(lst_json[2]['price'] * 110 // 100)[:-3] + '.' + str(lst_json[2]['price'] * 110 // 100)[-3:]
+    reg_origin = str(lst_json[2]['price'] * 110 // 100)
     reg_promotion = reg_origin
-    renew_price = str(lst_json[2]['renew'] * 110 // 100)[:-3] + '.' + str(lst_json[2]['renew'] * 110 // 100)[-3:]
-    trans_price = str(lst_json[2]['transfer'] * 110 // 100)[:-3] + '.' + str(lst_json[2]['transfer'] * 110 // 100)[-3:]
+    renew_price = str(lst_json[2]['renew'] * 110 // 100)
+    trans_price = str(lst_json[2]['transfer'] * 110 // 100)
     return [reg_origin, reg_promotion, renew_price, trans_price]
 
 def get_info():
     dom_origin = requests.get(urls).text
     lst_json = json.loads(dom_origin)
-    reg_origin = str(lst_json[54]['price'] * 110 // 100)[:-3] + '.' + str(lst_json[54]['price'] * 110 // 100)[-3:]
+    reg_origin = str(lst_json[54]['price'] * 110 // 100)
     reg_promotion = reg_origin
-    renew_price = str(lst_json[54]['renew'] * 110 // 100)[:-3] + '.' + str(lst_json[54]['renew'] * 110 // 100)[-3:]
-    trans_price = str(lst_json[54]['transfer'] * 110 // 100)[:-3] + '.' + str(lst_json[54]['transfer'] * 110 // 100)[-3:]
+    renew_price = str(lst_json[54]['renew'] * 110 // 100)
+    trans_price = str(lst_json[54]['transfer'] * 110 // 100)
     return [reg_origin, reg_promotion, renew_price, trans_price]
 
 class Command(BaseCommand):

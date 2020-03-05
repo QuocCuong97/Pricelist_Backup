@@ -16,7 +16,7 @@ def get_dom(url):
 def get_com():
     dom_origin = get_dom(urls)
     mark_reg = dom_origin.find(attrs={'id': 'tld_dom_com'})
-    reg_origin = mark_reg.find(class_="sale_price").string.replace(",", ".")
+    reg_origin = mark_reg.find(class_="sale_price").string.replace(",", "")
     reg_promotion = reg_origin
     renew_price = reg_origin
     trans_price = reg_origin
@@ -25,7 +25,7 @@ def get_com():
 def get_net():
     dom_origin = get_dom(urls)
     mark_reg = dom_origin.find(attrs={'id': 'tld_dom_net'})
-    reg_origin = mark_reg.find(class_="sale_price").string.replace(",", ".")
+    reg_origin = mark_reg.find(class_="sale_price").string.replace(",", "")
     reg_promotion = reg_origin
     renew_price = reg_origin
     trans_price = reg_origin
@@ -34,7 +34,7 @@ def get_net():
 def get_org():
     dom_origin = get_dom(urls)
     mark_reg = dom_origin.find(attrs={'id': 'tld_dom_org'})
-    reg_origin = mark_reg.find(class_="sale_price").string.replace(",", ".")
+    reg_origin = mark_reg.find(class_="sale_price").string.replace(",", "")
     reg_promotion = reg_origin
     renew_price = reg_origin
     trans_price = reg_origin
@@ -43,7 +43,7 @@ def get_org():
 def get_info():
     dom_origin = get_dom(urls)
     mark_reg = dom_origin.find(attrs={'id': 'tld_dom_info'})
-    reg_origin = mark_reg.find(class_="sale_price").string.replace(",", ".")
+    reg_origin = mark_reg.find(class_="sale_price").string.replace(",", "")
     reg_promotion = reg_origin
     renew_price = reg_origin
     trans_price = reg_origin

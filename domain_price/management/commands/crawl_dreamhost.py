@@ -20,52 +20,52 @@ def get_com():
     dom_origin = requests.get(urls).text.strip('jQuery1110038963459505137554_1582556006799(').strip(')')
     lst_json = json.loads(dom_origin)
     reg_origin_usd = lst_json['result'][0]['price']
-    reg_origin = str(round(float(reg_origin_usd)  * get_rate()))[:-3] + '.' + str(round(float(reg_origin_usd)  * get_rate()))[-3:]
+    reg_origin = round(float(reg_origin_usd)  * get_rate())
     reg_promotion_usd = reg_origin_usd
     reg_promotion = reg_origin
     renew_price_usd = lst_json['result'][0]['renew_price']
-    renew_price = str(round(float(renew_price_usd)  * get_rate()))[:-3] + '.' + str(round(float(renew_price_usd)  * get_rate()))[-3:]
+    renew_price = round(float(renew_price_usd)  * get_rate())
     trans_price_usd = lst_json['result'][0]['transfer_price']
-    trans_price = str(round(float(trans_price_usd)  * get_rate()))[:-3] + '.' + str(round(float(trans_price_usd)  * get_rate()))[-3:]
+    trans_price = round(float(trans_price_usd)  * get_rate())
     return [reg_origin, reg_promotion, renew_price, trans_price, reg_origin_usd, reg_promotion_usd, renew_price_usd, trans_price_usd]
 
 def get_net():
     dom_origin = requests.get(urls).text.strip('jQuery1110038963459505137554_1582556006799(').strip(')')
     lst_json = json.loads(dom_origin)
     reg_origin_usd = lst_json['result'][1]['price']
-    reg_origin = str(round(float(reg_origin_usd)  * get_rate()))[:-3] + '.' + str(round(float(reg_origin_usd)  * get_rate()))[-3:]
+    reg_origin = round(float(reg_origin_usd)  * get_rate())
     reg_promotion_usd = reg_origin_usd
     reg_promotion = reg_origin
     renew_price_usd = lst_json['result'][1]['renew_price']
-    renew_price = str(round(float(renew_price_usd)  * get_rate()))[:-3] + '.' + str(round(float(renew_price_usd)  * get_rate()))[-3:]
+    renew_price = round(float(renew_price_usd)  * get_rate())
     trans_price_usd = lst_json['result'][1]['transfer_price']
-    trans_price = str(round(float(trans_price_usd)  * get_rate()))[:-3] + '.' + str(round(float(trans_price_usd)  * get_rate()))[-3:]
+    trans_price = round(float(trans_price_usd)  * get_rate())
     return [reg_origin, reg_promotion, renew_price, trans_price, reg_origin_usd, reg_promotion_usd, renew_price_usd, trans_price_usd]
 
 def get_org():
     dom_origin = requests.get(urls).text.strip('jQuery1110038963459505137554_1582556006799(').strip(')')
     lst_json = json.loads(dom_origin)
     reg_origin_usd = lst_json['result'][2]['price']
-    reg_origin = str(round(float(reg_origin_usd)  * get_rate()))[:-3] + '.' + str(round(float(reg_origin_usd)  * get_rate()))[-3:]
+    reg_origin = round(float(reg_origin_usd)  * get_rate())
     reg_promotion_usd = reg_origin_usd
     reg_promotion = reg_origin
     renew_price_usd = lst_json['result'][2]['renew_price']
-    renew_price = str(round(float(renew_price_usd)  * get_rate()))[:-3] + '.' + str(round(float(renew_price_usd)  * get_rate()))[-3:]
+    renew_price = round(float(renew_price_usd)  * get_rate())
     trans_price_usd = lst_json['result'][2]['transfer_price']
-    trans_price = str(round(float(trans_price_usd)  * get_rate()))[:-3] + '.' + str(round(float(trans_price_usd)  * get_rate()))[-3:]
+    trans_price = round(float(trans_price_usd)  * get_rate())
     return [reg_origin, reg_promotion, renew_price, trans_price, reg_origin_usd, reg_promotion_usd, renew_price_usd, trans_price_usd]
 
 def get_info():
     dom_origin = requests.get(urls).text.strip('jQuery1110038963459505137554_1582556006799(').strip(')')
     lst_json = json.loads(dom_origin)
     reg_origin_usd = lst_json['result'][3]['price']
-    reg_origin = str(round(float(reg_origin_usd)  * get_rate()))[:-3] + '.' + str(round(float(reg_origin_usd)  * get_rate()))[-3:]
+    reg_origin = round(float(reg_origin_usd)  * get_rate())
     reg_promotion_usd = reg_origin_usd
     reg_promotion = reg_origin
     renew_price_usd = lst_json['result'][3]['renew_price']
-    renew_price = str(round(float(renew_price_usd)  * get_rate()))[:-3] + '.' + str(round(float(renew_price_usd)  * get_rate()))[-3:]
+    renew_price = round(float(renew_price_usd)  * get_rate())
     trans_price_usd = lst_json['result'][3]['transfer_price']
-    trans_price = str(round(float(trans_price_usd)  * get_rate()))[:-3] + '.' + str(round(float(trans_price_usd)  * get_rate()))[-3:]
+    trans_price = round(float(trans_price_usd)  * get_rate())
     return [reg_origin, reg_promotion, renew_price, trans_price, reg_origin_usd, reg_promotion_usd, renew_price_usd, trans_price_usd]
 
 

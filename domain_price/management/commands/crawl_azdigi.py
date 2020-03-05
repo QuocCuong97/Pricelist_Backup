@@ -16,28 +16,28 @@ def get_dom(url):
 def get_com():
     dom_origin = get_dom(urls)
     mark_origin = dom_origin.find('p', text='.com').parent.parent
-    reg_origin = mark_origin.contents[1].string.strip(' đ')
+    reg_origin = mark_origin.contents[1].string.strip(' đ').replace('.', '')
     reg_promotion = reg_origin
-    renew_price = mark_origin.contents[3].string.strip(' đ')
-    trans_price = mark_origin.contents[2].string.strip(' đ')
+    renew_price = mark_origin.contents[3].string.strip(' đ').replace('.', '')
+    trans_price = mark_origin.contents[2].string.strip(' đ').replace('.', '')
     return [reg_origin, reg_promotion, renew_price, trans_price]
 
 def get_net():
     dom_origin = get_dom(urls)
     mark_origin = dom_origin.find('p', text='.net').parent.parent
-    reg_origin = mark_origin.contents[1].string.strip(' đ')
+    reg_origin = mark_origin.contents[1].string.strip(' đ').replace('.', '')
     reg_promotion = reg_origin
-    renew_price = mark_origin.contents[3].string.strip(' đ')
-    trans_price = mark_origin.contents[2].string.strip(' đ')
+    renew_price = mark_origin.contents[3].string.strip(' đ').replace('.', '')
+    trans_price = mark_origin.contents[2].string.strip(' đ').replace('.', '')
     return [reg_origin, reg_promotion, renew_price, trans_price]
 
 def get_info():
     dom_origin = get_dom(urls)
     mark_origin = dom_origin.find('p', text='.info').parent.parent
-    reg_origin = mark_origin.contents[1].string.strip(' đ')
+    reg_origin = mark_origin.contents[1].string.strip(' đ').replace('.', '')
     reg_promotion = reg_origin
-    renew_price = mark_origin.contents[3].string.strip(' đ')
-    trans_price = mark_origin.contents[2].string.strip(' đ')
+    renew_price = mark_origin.contents[3].string.strip(' đ').replace('.', '')
+    trans_price = mark_origin.contents[2].string.strip(' đ').replace('.', '')
     return [reg_origin, reg_promotion, renew_price, trans_price]
 
 

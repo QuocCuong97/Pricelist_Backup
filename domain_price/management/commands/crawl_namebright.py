@@ -24,7 +24,7 @@ def get_com():
     dom_origin = get_dom(urls)
     mark_reg = dom_origin.find('td', text=".com").parent
     reg_origin_usd = str(mark_reg.contents[5].contents[0].string.strip('$')) + str(mark_reg.contents[5].contents[2].string)
-    reg_origin = str(round(float(reg_origin_usd)  * get_rate()))[:-3] + '.' + str(round(float(reg_origin_usd)  * get_rate()))[-3:]
+    reg_origin = round(float(reg_origin_usd)  * get_rate())
     reg_promotion_usd = reg_origin_usd
     reg_promotion = reg_origin
     renew_price_usd = reg_origin_usd
@@ -37,7 +37,7 @@ def get_net():
     dom_origin = get_dom(urls)
     mark_reg = dom_origin.find('td', text=".net").parent
     reg_origin_usd = str(mark_reg.contents[5].contents[0].string.strip('$')) + str(mark_reg.contents[5].contents[2].string)
-    reg_origin = str(round(float(reg_origin_usd)  * get_rate()))[:-3] + '.' + str(round(float(reg_origin_usd)  * get_rate()))[-3:]
+    reg_origin = round(float(reg_origin_usd)  * get_rate())
     reg_promotion_usd = reg_origin_usd
     reg_promotion = reg_origin
     renew_price_usd = reg_origin_usd
@@ -50,7 +50,7 @@ def get_org():
     dom_origin = get_dom(urls)
     mark_reg = dom_origin.find('td', text=".org").parent
     reg_origin_usd = str(mark_reg.contents[5].contents[1].string.strip('$')) + str(mark_reg.contents[5].contents[3].string)
-    reg_origin = str(round(float(reg_origin_usd)  * get_rate()))[:-3] + '.' + str(round(float(reg_origin_usd)  * get_rate()))[-3:]
+    reg_origin = round(float(reg_origin_usd)  * get_rate())
     reg_promotion_usd = reg_origin_usd
     reg_promotion = reg_origin
     renew_price_usd = reg_origin_usd
@@ -63,7 +63,7 @@ def get_info():
     dom_origin = get_dom(urls)
     mark_reg = dom_origin.find('td', text=".info").parent
     reg_origin_usd = str(mark_reg.contents[5].contents[1].string.strip('$')) + str(mark_reg.contents[5].contents[3].string)
-    reg_origin = str(round(float(reg_origin_usd)  * get_rate()))[:-3] + '.' + str(round(float(reg_origin_usd)  * get_rate()))[-3:]
+    reg_origin = round(float(reg_origin_usd)  * get_rate())
     reg_promotion_usd = reg_origin_usd
     reg_promotion = reg_origin
     renew_price_usd = reg_origin_usd

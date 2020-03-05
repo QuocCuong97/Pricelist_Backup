@@ -23,14 +23,14 @@ def get_rate():
 def get_com():
     dom_origin = get_dom("https://www.alibabacloud.com/domain/com?spm=a3c0i.145322.872256.4.da194635FGSvX1")
     mark_origin = dom_origin.find(class_="col-md-8 hot-sales")
-    reg_origin_usd = str(mark_origin.contents[1].contents[1].find('strong', class_="pull-right").string.strip('$'))
-    reg_origin = str(round(float(reg_origin_usd)  * get_rate()))[:-3] + '.' + str(round(float(reg_origin_usd)  * get_rate()))[-3:]
+    reg_origin_usd = mark_origin.contents[1].contents[1].find('strong', class_="pull-right").string.strip('$')
+    reg_origin = round(float(reg_origin_usd) * get_rate())
     reg_promotion_usd = reg_origin_usd
     reg_promotion = reg_origin
-    renew_price_usd = str(mark_origin.contents[1].contents[3].find('strong', class_="pull-right").string.strip('$'))
-    renew_price = str(round(float(renew_price_usd) * get_rate()))[:-3] + '.' + str(round(float(renew_price_usd) * get_rate()))[-3:]
-    trans_price_usd = str(mark_origin.contents[1].contents[5].find('strong', class_="pull-right").string.strip('$'))
-    trans_price = str(round(float(trans_price_usd) * get_rate()))[:-3] + '.' + str(round(float(trans_price_usd) * get_rate()))[-3:]
+    renew_price_usd = mark_origin.contents[1].contents[3].find('strong', class_="pull-right").string.strip('$')
+    renew_price = round(float(renew_price_usd) * get_rate())
+    trans_price_usd = mark_origin.contents[1].contents[5].find('strong', class_="pull-right").string.strip('$')
+    trans_price = round(float(trans_price_usd) * get_rate())
     return [reg_origin, reg_promotion, renew_price, trans_price, reg_origin_usd, reg_promotion_usd, renew_price_usd, trans_price_usd]
 
 
